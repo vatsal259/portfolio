@@ -1,0 +1,10 @@
+.video-wrapper {
+    display: flex;
+    align-items: center;
+   }
+.videoplayer{
+     width: 100%;
+     align-items: center;
+     margin-left: auto;
+     margin-right: auto;
+   }
