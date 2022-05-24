@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fdbea751.css",
-    "main.js": "/static/js/main.0ca39dd4.js",
+    "main.js": "/static/js/main.9f796931.js",
     "static/media/me.png": "/static/media/me.62d72eb82337636d3132.png",
     "static/media/me-about.jpg": "/static/media/me-about.fe2c0313a82823fc2c61.jpg",
     "static/media/Fittonesu.jpg": "/static/media/Fittonesu.5c22c39c528d10d9874d.jpg",
@@ -11,10 +11,10 @@
     "static/media/NLP.jpg": "/static/media/NLP.aef0d6894efb5a5a9582.jpg",
     "index.html": "/index.html",
     "main.fdbea751.css.map": "/static/css/main.fdbea751.css.map",
-    "main.0ca39dd4.js.map": "/static/js/main.0ca39dd4.js.map"
+    "main.9f796931.js.map": "/static/js/main.9f796931.js.map"
   },
   "entrypoints": [
     "static/css/main.fdbea751.css",
-    "static/js/main.0ca39dd4.js"
+    "static/js/main.9f796931.js"
   ]
 }
