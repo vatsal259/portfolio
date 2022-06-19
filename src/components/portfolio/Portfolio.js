@@ -4,7 +4,6 @@ import IMG2 from '../../assets/CNN.jpg'
 import IMG3 from '../../assets/NLP.jpg'
 import IMG4 from '../../assets/Fittonesu.jpg'
 import IMG5 from '../../assets/Fembizz.jpg'
-// import IMG6 from '../../assets/portfolio6.jpg'
 
 const Portfolio = () => {
     return (

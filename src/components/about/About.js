@@ -36,7 +36,7 @@ const About = () => {
                         </article>
                     </div>
                     <p>I aim to attain an engaging internship position in the field of Computer Science and UI/UX. My interests include Machine Learning, Artificial Intelligence, Front-end web development, Data science and UI/UX designing.</p>
-                    <a href={"#contact"} className={"btn btn-primary"}>Let's Talk</a>
+                    {/* <a href={"#contact"} className={"btn btn-primary"}>Let's Talk</a> */}
                 </div>
             </div>
         </section>

@@ -20,10 +20,11 @@ header {
 
 /*Socials*/
 .header__socials {
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     position: absolute;
     left: 0;
     bottom: 3rem;
