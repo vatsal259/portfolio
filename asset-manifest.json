@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.25cb574b.css",
+    "main.css": "/static/css/main.4e2571c1.css",
     "main.js": "/static/js/main.aafad90b.js",
     "static/media/Vatsal_v.jpg": "/static/media/Vatsal_v.8aab385237aad6a90483.jpg",
     "static/media/Fittonesu.jpg": "/static/media/Fittonesu.5c22c39c528d10d9874d.jpg",
@@ -10,11 +10,11 @@
     "static/media/CNN.jpg": "/static/media/CNN.6316d3af245d1043eade.jpg",
     "static/media/NLP.jpg": "/static/media/NLP.aef0d6894efb5a5a9582.jpg",
     "index.html": "/index.html",
-    "main.25cb574b.css.map": "/static/css/main.25cb574b.css.map",
+    "main.4e2571c1.css.map": "/static/css/main.4e2571c1.css.map",
     "main.aafad90b.js.map": "/static/js/main.aafad90b.js.map"
   },
   "entrypoints": [
-    "static/css/main.25cb574b.css",
+    "static/css/main.4e2571c1.css",
     "static/js/main.aafad90b.js"
   ]
 }
