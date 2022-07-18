@@ -1,9 +1,21 @@
 import './Header.css'
 import CTA from "./CTA";
-import ME from "../../assets/Mouse.png"
 import Socials from "./Socials";
+import Lottie from 'lottie-web';
+// import og from "../../src/assets/ld.json"
+import { useEffect, useRef } from 'react';
+
 
 const Header = () => {
+    const container =useRef(null)
+    useEffect(() =>{
+        Lottie.loadAnimation({
+            container: container.current,
+            loop: true,
+            autoplay: true,
+            animationData: require('../../assets/ld.json')
+        })
+    })
     return (
         <header>
             <div className={"container header__container"}>
@@ -14,8 +26,7 @@ const Header = () => {
                     <CTA/>
                 <Socials />
 
-                <div className={"me"}>
-                    <img className={"photo"} src={ME} alt={"me"}/>
+                <div className={"me"} ref={container}>
                 </div>
 
                 <a href={"#about"} className={"scroll__down"}>Scroll Down</a>
