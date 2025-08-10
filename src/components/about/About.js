@@ -1,43 +1,34 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import './About.css'
-import ME from '../../assets/Vatsal_v.jpg'
-import {FaAward} from "react-icons/fa"
-import {FiUsers} from 'react-icons/fi'
-import {VscFolderLibrary} from 'react-icons/vsc'
 
 const About = () => {
     return (
         <section id={"about"}>
-            <h5>Get to know</h5>
             <h2>About me</h2>
             <div className={"container about__container"}>
-                <div className={"about__me"}>
-                    <div className={"about__me-image"}>
-                        <img src={ME} alt={"About Image"}/>
-                    </div>
-                </div>
+                
                 <div className={"about__content"}>
                     <div className={"about__cards"}>
                         <article className={'about__card'}>
-                            <FaAward className={"about__icon"}/>
                             <h3>Education</h3>
                             <medium>B.Tech, VIT University, Vellore</medium>
                         </article>
                         <article className={'about__card'}>
-                            <FiUsers className={"about__icon"}/>
-                            <h3>Interests</h3>
-                            <medium>AI, ML and UI/UX</medium>
+                            <h3>Software Engineer</h3>
+                            <medium>Amdocs</medium>
                         </article>
                         <article className={'about__card'}>
-                            <VscFolderLibrary className={"about__icon"}/>
-                            <h3>Projects</h3>
-                            <medium>10+ Projects</medium>
+                            <h3>Location</h3>
+                            <medium>India</medium>
                         </article>
                     </div>
-                    <p>I aim to attain an engaging internship position in the field of Computer Science and UI/UX. My interests include Machine Learning, Artificial Intelligence, Front-end web development, Data science and UI/UX designing.</p>
-                    {/* <a href={"#contact"} className={"btn btn-primary"}>Let's Talk</a> */}
                 </div>
+                <div className={'about__content'}>
+                    <p className={"about_para"}>I'm a <strong>Software Developer</strong> passionate about building meaningful and impactful technology. I specialize in working with <strong>Microservices Architectures</strong>, love diving into <strong>AI/ML</strong>, and enjoy crafting clean, user-centered <strong>UI/UX</strong> experiences. My goal is always to solve real-world problems with thoughtful, well-structured code.</p>
+                    <p className={"about_para"}>When I’m not coding, you’ll find me riding my <strong>Royal Enfield Hunter</strong>, chasing open roads, quiet curves, and new perspectives. There’s something about the freedom of the ride — the rhythm of the engine, the wind in my face — that clears my head like nothing else.</p>
+                    <p className={"about_para"}>More often than not, I’ve got a camera slung over my shoulder, ready to capture whatever catches my eye — a bird in flight, a perfect patch of light, or a moment that feels too real to ignore.</p>
+               </div>
             </div>
         </section>
     )

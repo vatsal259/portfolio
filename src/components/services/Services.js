@@ -3,45 +3,70 @@ import './Services.css'
 const Services = () => {
     return (
         <section id={"services"}>
-            <h5>What are my</h5>
-            <h2>Interests</h2>
+            <h2>My Developer Toolkit</h2>
             <div className={"container services__container"}>
             <article className={"service"}>
                     <div className={"service__head"}>
-                        <h2>AI/ML Development</h2>
+                        <h2>Programming & Logic</h2>
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>I'm a highly motivated and passionate to use my talents in machine learning/AI and statistical analysis to solve real-world problems and make the customer achieve more.</h4>
-                        </li>
-                        <li>
-                            <h4 style={{fontWeight: "lighter"}}>Previously worked on many AI projects.</h4>
+                            <h4 style={{fontWeight: "lighter"}}>Fluent in Java, Python, and MATLAB — combining strong fundamentals with hands-on coding for building scalable, efficient solutions.</h4>
                         </li>
                     </ul>
                 </article>
 
                 <article className={"service"}>
                     <div className={"service__head"}>
-                        <h2>Frontend Web Development</h2>
+                        <h2>Practices & Mindset</h2>
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Front-End Developer with a proven ability to collaborate effectively with senior developers while spending extra time to be mentored. Enjoy working closely with team members to ensure workloads are effectively redirected to bottlenecks and personally picking up the slack when necessary.</h4>
+                            <h4 style={{fontWeight: "lighter"}}>Agile at heart, driven by clean architecture, system design, and collaborative teamwork — always learning, always shipping.</h4>
                         </li>
-                        
                     </ul>
                 </article>
 
                 <article className={"service"}>
                     <div className={"service__head"}>
-                        <h2>UI/UX Design</h2>
+                        <h2>Backend & Architecture</h2>
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Designed many figma UI prototypes for websites and mobile applications for both Android and iOS devices.</h4>
+                            <h4 style={{fontWeight: "lighter"}}>Experienced in building microservices with Spring Boot and Kafka, backed by RESTful APIs and NoSQL databases like Couchbase.</h4>
                         </li>
+                    </ul>
+                </article>
+
+                <article className={"service"}>
+                    <div className={"service__head"}>
+                        <h2>AI/ML & Data Intelligence</h2>
+                    </div>
+                    <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Designed webpages and applications that met user goals.</h4>
+                            <h4 style={{fontWeight: "lighter"}}>Passionate about ML, CNNs, GenAI, and NLP — turning data into smart, usable systems through research and experimentation.</h4>
+                        </li>
+                    </ul>
+                </article>
+
+                <article className={"service"}>
+                    <div className={"service__head"}>
+                        <h2>DevOps & Tools</h2>
+                    </div>
+                    <ul className={"service__list"}>
+                        <li>
+                            <h4 style={{fontWeight: "lighter"}}>CI/CD pipelines, OpenShift deployments, and version control using Git, Jenkins, and Bitbucket — with a dash of JIRA/Confluence.</h4>
+                        </li>
+                    </ul>
+                </article>
+
+                <article className={"service"}>
+                    <div className={"service__head"}>
+                        <h2>UI/UX</h2>
+                    </div>
+                    <ul className={"service__list"}>
+                        <li>
+                            <h4 style={{fontWeight: "lighter"}}>Passionate about designing clean, user-focused UI/UX — from intuitive wireframes to polished, functional experiences across platforms.</h4>
                         </li>
                     </ul>
                 </article>

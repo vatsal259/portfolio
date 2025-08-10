@@ -1,43 +1,34 @@
 .experience__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    display: flex;
+    flex-direction:column;
 }
 
-.experience__container > div {
-    background-color: var(--color-bg-variant);
-    padding: 2.4rem 5rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
+
+
+.experience__details {
+    gap: 2rem;
+    text-align: left;
+    background: var(--color-bg-variant);
+    border-radius: 0.4rem;
+    padding: 2rem;
     transition: var(--transition);
 }
 
-.experience__container > div:hover {
+.experience__details:hover {
+    text-align: left;
     background: transparent;
+    color: var( --color-white);
     border-color: var(--color-primary-variant);
     cursor: default;
 }
 
-.experience__container > div h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
+.uls-vat {
+  margin-top: 0.2rem;
 }
 
-.experience__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
-}
-
-.experience__details {
-    display: flex;
-    gap: 1rem;
-}
-
-.experience__details-icons {
-    margin-top: 6px;
-    color: var(--color-primary);
+.uls-vat li::marker {
+  color: white; /* or any accent */
 }
 
 /*Media Queries (Medium Devices)*/

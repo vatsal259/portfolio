@@ -1,103 +1,31 @@
 import React from 'react'
 import './Experience.css'
-import {BsPatchCheckFill} from 'react-icons/bs'
 
 const Experience = () => {
     return (
         <section id={"experience"}>
-            <h5>What Skills I Have</h5>
-            <h2>My Experience</h2>
+            <h2>Work Experience</h2>
             <div className={"container experience__container"}>
-                <div className={"experience__frontend"}>
-
-                    <h2>Development</h2>
-                    <div className={"experience__content"}>
                     <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Data Structures</h4>
-                                <small className={"text-light"}>Experienced</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>HTML</h4>
-                                <small className={"text-light"}>Experienced</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>CSS</h4>
-                                <small className={"text-light"}>Intermediate</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Java</h4>
-                                <small className={"text-light"}>Intermediate</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Python</h4>
-                                <small className={"text-light"}>Experienced</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>C/C++</h4>
-                                <small className={"text-light"}>Experienced</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>React</h4>
-                                <small className={"text-light"}>Basic</small>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div className={"experience__backend"}>
-                    <h2>Design</h2>
-                    <div className={"experience__content"}>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Figma</h4>
-                                <small className={"text-light"}>Experienced</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Adobe Xd</h4>
-                                <small className={"text-light"}>Intermediate</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Adobe After Affects</h4>
-                                <small className={"text-light"}>Basic</small>
-                            </div>
-                        </article>
-                        <article className={"experience__details"}>
-                            <BsPatchCheckFill className={"experience__details-icons"}/>
-                            <div>
-                                <h4>Adobe Photoshop</h4>
-                                <small className={"text-light"}>Intermediate</small>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
+                        <h2 className={"text-light"}>Amdocs</h2>
+                        <h3 className={"text-light"}>Software Developer</h3>
+                        <h4 className={"text-light"}>August 2023 – Present</h4>
+                        <div className={"text-light"}>
+                            <p>
+                                Worked on a microservices-based billing platform aligned with TM Forum standards, using Java Spring, Kafka, and REST APIs. Improved CI/CD pipelines on OpenShift, reducing deployment time by 20%. Resolved 30+ security vulnerabilities and contributed to successful production deployments with ongoing support.
+                            </p>
+                        </div>
+                    </article>
+                    <article className={"experience__details"}>
+                        <h2 className={"text-light"}>Indian Institute of Technology (IIT-BHU), Varanasi</h2>
+                        <h3 className={"text-light"}>AI/ML Research Intern</h3>
+                        <h4 className={"text-light"}>August 2021 – February 2022</h4>
+                        <div className={"text-light"}>
+                            <p>
+                                Developed a facial recognition system using Convolutional Neural Networks (CNNs) capable of identifying up to 50,000 individuals with high accuracy. Extended the model to recognize cows by analyzing unique muzzle patterns, demonstrating adaptability and innovation. Led research efforts, managed timelines, and collaborated with the team to ensure smooth execution and successful project delivery.    
+                            </p>
+                        </div>
+                    </article>
             </div>
         </section>
     )
