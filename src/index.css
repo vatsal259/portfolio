@@ -11,14 +11,24 @@
 }
 
 :root {
-    --color-bg: #060606;
-    --color-bg-variant: #222222;
-    --color-primary: #5fa8d3;
-    --color-primary-variant: #5fa8d3;
-    --color-white: #E1EACD;
-    --color-light: #bee9e8;
+    --color-bg: #0b0f14;
+    --color-bg-variant: #171d25;
+    --color-primary: #89c9f3;
+    --color-primary-variant: #89c9f3;
+    --color-white: #e7ecef;
+    --color-light: #cfe2ef;
+    --color-border: rgba(190, 218, 236, 0.26);
+    --shadow-soft: 0 0.45rem 1.2rem rgba(0, 0, 0, 0.2);
+    --radius-card: 0.7rem;
 
     --transition: all 400ms ease;
+    --section-space-lg: 8rem;
+    --section-space-md: 6rem;
+    --section-space-sm: 4.5rem;
+    --font-size-h1: clamp(2rem, 4vw, 3rem);
+    --font-size-h2: clamp(1.7rem, 3.2vw, 2.4rem);
+    --font-size-h3: clamp(1.15rem, 2.2vw, 1.45rem);
+    --font-size-body: clamp(0.98rem, 1.1vw, 1.05rem);
 
     --container-width-lg: 75%;
     --container-width-md: 86%;
@@ -38,6 +48,7 @@ body{
     background: var(--color-bg);
     color: var(--color-white);
     line-height: 1.7;
+    font-size: var(--font-size-body);
 }
 
 /*General Styles*/
@@ -48,14 +59,30 @@ body{
 
 h1, h2, h3, h4, h5 {
     font-weight: 500;
+    letter-spacing: 0.01em;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+.card__title {
+    font-size: 1.28rem;
+    line-height: 1.3;
+    font-weight: 500;
+    margin: 0.62rem 0 0.38rem;
 }
 
 section {
-    margin-top: 8rem;
+    margin-top: var(--section-space-lg);
     /*height: 100vh;*/
 }
 
@@ -66,7 +93,17 @@ section > h2, section > h5 {
 
 section > h2 {
     color: var(--color-primary);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+section > h2::after {
+    content: "";
+    display: block;
+    width: 3.2rem;
+    height: 2px;
+    margin: 0.55rem auto 0;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
 }
 
 .text-light {
@@ -91,13 +128,15 @@ a:hover {
     border-radius: 0.4rem;
     cursor: pointer;
     border: 1px solid var(--color-primary);
-    transition: var(--transition);
+    transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, color 220ms ease;
 }
 
 .btn:hover {
     background: var(--color-white);
     color: var(--color-bg);
     border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 0.45rem 1rem rgba(137, 201, 243, 0.24);
 }
 
 .btn-primary {
@@ -119,7 +158,7 @@ img {
     }
 
     section {
-        margin-top: 6rem;
+        margin-top: var(--section-space-md);
     }
 }
 
@@ -131,6 +170,10 @@ img {
     }
 
     section > h2 {
-        margin-bottom: 2rem;
+        margin-bottom: 1.4rem;
+    }
+
+    section {
+        margin-top: var(--section-space-sm);
     }
 }

@@ -2,31 +2,38 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+    align-items: stretch;
 }
 
 .portfolio__item {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
     background: var(--color-bg-variant);
     padding: 1.2rem;
-    border-radius: 0.4rem;
+    border-radius: var(--radius-card);
     transition: var(--transition);
-    align-items: center;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%;
+    box-shadow: var(--shadow-soft);
 }
 
 .portfolio__item:hover {
-    border-color: var(--color-primary-variant);
-    background: transparent;
+    background: rgba(23, 29, 37, 0.82);
 }
 
 .portfolio__item-image {
-    border-radius: 0.4rem;
+    border-radius: calc(var(--radius-card) - 0.15rem);
     overflow: hidden;
+    aspect-ratio: 16 /9.7;
+    
 }
 
-.portfolio__item h3 {
-    font-size: 1.5rem ;
-    margin: 1.2rem 0 1.2rem;
+.portfolio__item .card__title {
+    margin: 0.18rem 0 0.08rem;
+    min-height: auto;
+    display: flex;
+    align-items: flex-start;
 }
 
 .portfolio__item-cta {
@@ -34,6 +41,19 @@
     gap: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.portfolio__item-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-start;
+}
+
+.portfolio__item-copy p {
+    font-weight: 300;
+    text-align: left;
+    line-height: 1.75;
 }
 
 /*Media Queries (Medium Devices)*/

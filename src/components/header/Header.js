@@ -9,13 +9,13 @@ const Header = () => {
         <header className={"container"}>
             <div className={"header__container"}>
                 <div className={"left"}>
-                    <h3 style={{fontSize: "1.8rem", fontWeight: "normal", color: "#E1EACD"}}>Hello I'm</h3>
-                    <h2 style={{fontSize: "3rem", fontWeight: "normal", color: "#5fa8d3"}}>Vatsal Verma</h2>
-                    <h5 style={{fontSize: "1.5rem", fontWeight: "normal", color: "#E1EACD"}} className={"text-light"}>Software Engineer | Biker | Amateur Photographer</h5>
+                    <h3 className={"header__intro text-light"}>Hello I'm</h3>
+                    <h2 className={"header__name"}>Vatsal Verma</h2>
+                    <h5 className={"header__tagline text-light"}>Software Engineer | Biker | Amateur Photographer</h5>
                     <CTA/>
                     <Socials/>
                 </div>
-                <div>
+                <div className={"header__image-wrap"}>
                     <img className={"me"} src={ME} alt={"About"}/>
                 </div>
             </div>

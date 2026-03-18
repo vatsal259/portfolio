@@ -11,7 +11,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Fluent in Java, Python, and MATLAB — combining strong fundamentals with hands-on coding for building scalable, efficient solutions.</h4>
+                            <h4 className={"service__text"}>Fluent in Java, Python, and MATLAB  combining strong fundamentals with hands-on coding for building scalable, efficient solutions.</h4>
                         </li>
                     </ul>
                 </article>
@@ -22,7 +22,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Agile at heart, driven by clean architecture, system design, and collaborative teamwork — always learning, always shipping.</h4>
+                            <h4 className={"service__text"}>Agile at heart, driven by clean architecture, system design, and collaborative teamwork  always learning, always shipping.</h4>
                         </li>
                     </ul>
                 </article>
@@ -33,7 +33,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Experienced in building microservices with Spring Boot and Kafka, backed by RESTful APIs and NoSQL databases like Couchbase.</h4>
+                            <h4 className={"service__text"}>Experienced in building microservices with Spring Boot and Kafka, backed by RESTful APIs and NoSQL databases like Couchbase.</h4>
                         </li>
                     </ul>
                 </article>
@@ -44,7 +44,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Passionate about ML, CNNs, GenAI, and NLP — turning data into smart, usable systems through research and experimentation.</h4>
+                            <h4 className={"service__text"}>Passionate about ML, CNNs, GenAI, and NLP  turning data into smart, usable systems through research and experimentation.</h4>
                         </li>
                     </ul>
                 </article>
@@ -55,7 +55,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>CI/CD pipelines, OpenShift deployments, and version control using Git, Jenkins, and Bitbucket — with a dash of JIRA/Confluence.</h4>
+                            <h4 className={"service__text"}>CI/CD pipelines, OpenShift deployments, and version control using Git, Jenkins, and Bitbucket  with a dash of JIRA/Confluence.</h4>
                         </li>
                     </ul>
                 </article>
@@ -66,7 +66,7 @@ const Services = () => {
                     </div>
                     <ul className={"service__list"}>
                         <li>
-                            <h4 style={{fontWeight: "lighter"}}>Passionate about designing clean, user-focused UI/UX — from intuitive wireframes to polished, functional experiences across platforms.</h4>
+                            <h4 className={"service__text"}>Passionate about designing clean, user-focused UI/UX  from intuitive wireframes to polished, functional experiences across platforms.</h4>
                         </li>
                     </ul>
                 </article>

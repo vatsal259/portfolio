@@ -2,13 +2,17 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
+    align-items: stretch;
 }
 
 .service {
     background: var(--color-bg-variant);
-    border-radius: 0.4rem;
-    height: fit-content;
+    border-radius: var(--radius-card);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     transition: var(--transition);
+    box-shadow: var(--shadow-soft);
 }
 
 .service:hover {
@@ -19,18 +23,27 @@
 .service__head {
     background: var(--color-primary);
     padding: 1rem;
-    border-radius: 0.4rem 0.4rem 0rem 0rem;
-    box-shadow: 0 2rem 1rem rgba(0,0,0,0.1);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    box-shadow: none;
 }
 
 .service__head h2 {
     color: var(--color-bg);
-    font-size: 1.3rem;
+    font-size: 1.34rem;
+    line-height: 1.35;
+    min-height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
     text-align: center;
 }
 
 .service__list {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .service__list li {
@@ -46,6 +59,11 @@
 
 .service__list p {
     font-size: 0.9rem;
+}
+
+.service__text {
+    font-weight: 300;
+    line-height: 1.7;
 }
 
 /*Media Queries (Medium Devices)*/

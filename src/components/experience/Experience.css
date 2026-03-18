@@ -1,25 +1,33 @@
 .experience__container {
     gap: 2rem;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 }
 
 
 
 .experience__details {
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
     text-align: left;
     background: var(--color-bg-variant);
-    border-radius: 0.4rem;
+    border-radius: var(--radius-card);
     padding: 2rem;
     transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.experience__company {
+    font-size: 1.55rem;
+    line-height: 1.35;
+    margin-bottom: 0.15rem;
 }
 
 .experience__details:hover {
     text-align: left;
-    background: transparent;
+    background: rgba(23, 29, 37, 0.82);
     color: var( --color-white);
-    border-color: var(--color-primary-variant);
     cursor: default;
 }
 
@@ -34,11 +42,11 @@
 /*Media Queries (Medium Devices)*/
 @media screen and (max-width: 1024px) {
     .experience__container {
-        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .experience__container > div {
-        width: 80%;
+    .experience__container > article {
+        width: 100%;
         padding: 2rem;
         margin: 0 auto;
     }
@@ -54,8 +62,12 @@
         gap: 1rem;
     }
 
-    .experience__container > div {
+    .experience__container > article {
         width: 100%;
         padding: 2rem 1rem;
+    }
+
+    .experience__company {
+        font-size: 1.38rem;
     }
 }
