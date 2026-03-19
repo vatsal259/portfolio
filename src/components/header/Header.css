@@ -7,7 +7,7 @@ header {
 
 .me {
     width: 100%;
-    max-width: clamp(22rem, 34vw, 34rem);
+    max-width: clamp(24rem, 37vw, 40rem);
     margin-left: auto;
 }
 
@@ -87,15 +87,15 @@ header {
     font-size: 0.9rem;
 }
 
-/*Media Queries (Small Devices)*/
-@media screen and (max-width: 920px) {
+/*Media Queries (Tablet + Small Devices)*/
+@media screen and (max-width: 1200px) {
     header{
         min-height: auto;
         padding-top: 4rem;
     }
     .me{
         display: block;
-        max-width: min(72vw, 22rem);
+        max-width: min(76vw, 24rem);
         margin: 0 auto;
     }
 
@@ -105,6 +105,8 @@ header {
         grid-template-columns: 1fr;
         gap: 1.6rem;
         align-items: center;
+        justify-items: center;
+        width: 100%;
         text-align: center;
     }
 
@@ -114,10 +116,17 @@ header {
 
     .left {
         align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .left > * {
+        text-align: center;
     }
 
     .header__socials {
         margin-top: 2rem;
+        width: 100%;
         justify-content: center;
         gap: 1rem;
     }
@@ -125,6 +134,7 @@ header {
     .CTA {
         margin-top: 2rem;
         margin-bottom: 2rem;
+        width: 100%;
         gap: 1rem;
         justify-content: center;
     }
@@ -140,7 +150,7 @@ header {
     }
 
     .me {
-        max-width: min(80vw, 18rem);
+        max-width: min(84vw, 20rem);
     }
 
     .header__socials {
