@@ -1,10 +1,8 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import './Contact.css'
 import {MdOutlineEmail} from "react-icons/md";
 
 const Contact = () => {
-
-    const form = useRef();
 
     return (
         <section id={"contact"}>
