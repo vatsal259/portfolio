@@ -1,30 +1,44 @@
-import React from 'react';
-import Header from "./components/header/Header";
-import Nav from "./components/nav/Nav";
-import About from "./components/about/About";
-import Experience from "./components/experience/Experience";
-import Services from "./components/services/Services";
-import Testimonials from "./components/testimonials/Testimonials";
-import Contact from "./components/contact/Contact";
-import Footer from "./components/footer/Footer";
-import Portfolio from "./components/portfolio/Portfolio";
-import Project from './components/projects/Project';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Nav from './components/nav/Nav';
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import ExperiencePage from './pages/ExperiencePage';
+import ServicesPage from './pages/ServicesPage';
+import WorkPage from './pages/WorkPage';
+import ContactPage from './pages/ContactPage';
+import BlogList from './components/blog/BlogList';
+import BlogPost from './components/blog/BlogPost';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
-    return (
-        <>
-            <Header />
-            <Nav />
-            <About />
-            <Experience />
-            <Services />
-            <Project/>
-            <Portfolio />
-            <Testimonials />
-            <Contact />
-            <Footer />
-        </>
-    )
-}
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <ScrollToTop />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/expertise" element={<ServicesPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;

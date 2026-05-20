@@ -1,0 +1,77 @@
+/* Homepage type scale: label → title → body → meta */
+.home__section {
+  --home-type-label: var(--font-size-small);
+  --home-type-title: clamp(1.35rem, 2.4vw, 1.7rem);
+  --home-type-body: var(--font-size-body);
+  --home-type-meta: var(--font-size-body);
+
+  margin-top: 0;
+  padding: 2.2rem 0 0;
+}
+
+.home__intro {
+  text-align: center;
+  max-width: 52rem;
+}
+
+.home__eyebrow {
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: var(--home-type-label);
+  color: var(--color-primary);
+}
+
+.home__intro h2 {
+  margin-bottom: 0.45rem;
+  font-size: var(--home-type-title);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-white);
+}
+
+.home__links {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 1.2rem;
+}
+
+.home__link-item {
+  border-bottom: 1px solid rgba(190, 218, 236, 0.2);
+  padding: 0.55rem 0;
+}
+
+.home__section-title {
+  display: inline-block;
+  color: var(--color-white);
+  font-size: var(--home-type-body);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 0.14rem;
+}
+
+.home__section-title:hover {
+  color: var(--color-primary);
+}
+
+.home__link-item p {
+  margin: 0;
+  color: var(--color-light);
+  font-size: var(--home-type-meta);
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 1024px) {
+  .home__links {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .home__section {
+    padding: 1.8rem 0 0;
+  }
+}

@@ -11,6 +11,9 @@
 # production
 /build
 
+# Resume is loaded from the contents repo at runtime — do not copy into public/
+/public/Resume_*.pdf
+
 # misc
 .DS_Store
 .env.local

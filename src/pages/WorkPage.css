@@ -1,0 +1,146 @@
+/* WorkPage — compact, minimal */
+
+.work-page {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.work-page section {
+    margin-top: 0;
+}
+
+.work-page section + section {
+    margin-top: 2.6rem;
+}
+
+.section-page__content .work-page section:first-of-type {
+    margin-top: 0.8rem;
+}
+
+.work-page .projects__container,
+.work-page .portfolio__container,
+.work-page .testimonials__container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.work-page .container {
+    width: 100%;
+}
+
+.work-block__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.work-block__eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    color: var(--color-primary);
+}
+
+.work-block__title {
+    margin: 0;
+    color: var(--color-white);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+/* Projects — compact image + text row */
+.work-page .projects__list {
+    padding-top: 1.4rem;
+    gap: 2rem;
+}
+
+.work-page .projects__item {
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    column-gap: 1.6rem;
+    align-items: start;
+}
+
+.work-page .projects__media {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.work-page .projects__copy {
+    gap: 0.5rem;
+}
+
+.work-page .projects__meta {
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+}
+
+.work-page .projects__title {
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+.work-page .projects__text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    max-width: none;
+}
+
+/* Portfolio — full-width image, text below (overridden in Portfolio.css) */
+.work-page .portfolio__label {
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+}
+
+.work-page .portfolio__title {
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+.work-page .portfolio__text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    max-width: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .work-page {
+        padding: 0 1.25rem;
+    }
+
+    .work-page .projects__item {
+        grid-template-columns: 1fr;
+        row-gap: 0.85rem;
+    }
+
+    .work-page .projects__media {
+        max-width: 100%;
+    }
+
+    .work-page .projects__list {
+        gap: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .work-page {
+        padding: 0 1.1rem;
+    }
+
+    .work-page section + section {
+        margin-top: 2rem;
+    }
+
+    .work-block__head {
+        margin-bottom: 0.85rem;
+    }
+
+    .work-block__title {
+        font-size: 1.25rem;
+    }
+}
