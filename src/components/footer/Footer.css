@@ -17,7 +17,7 @@ footer a {
 
 .footer__name {
   display: inline-block;
-  font-size: var(--font-size-page-title);
+  font-size: var(--font-size-section);
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--color-white);
@@ -103,7 +103,7 @@ footer a {
   }
 
   .footer__name {
-    font-size: var(--font-size-page-title);
+    font-size: var(--font-size-section);
   }
 
   .footer__message {

@@ -72,7 +72,7 @@
 .about__obsession-title {
     margin: 0 0 0.45rem;
     color: var(--color-white);
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-card);
     font-weight: 500;
     line-height: 1.6;
 }
@@ -128,7 +128,7 @@
 .about__work-title {
     margin: 0;
     color: var(--color-white);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-card);
     font-weight: 500;
     line-height: 1.5;
 }
@@ -136,7 +136,7 @@
 .about__work-subtitle {
     margin: 0;
     color: var(--color-light);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-body);
     line-height: 1.6;
     opacity: 0.85;
 }

@@ -181,7 +181,7 @@
 }
 
 .blog-prose h3 {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-card);
 }
 
 .blog-prose p {
@@ -274,7 +274,7 @@
   }
 
   .blog-card__title {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-card);
   }
 
   .blog-prose table {
