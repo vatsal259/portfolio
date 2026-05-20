@@ -2,6 +2,7 @@ import React from 'react';
 import './Contact.css';
 
 const EMAIL = 'vatsalverma999@gmail.com';
+const INSTAGRAM_URL = 'https://instagram.com/vatsalastav';
 
 const OPEN_TO = [
   { label: 'Collaborations', value: 'Products, systems, and side projects' },
@@ -16,7 +17,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Instagram',
-    href: 'https://instagram.com/vatsalastav',
+    href: INSTAGRAM_URL,
   },
   {
     label: 'Behance',
@@ -67,6 +68,30 @@ const Contact = () => {
               <span className="contact-page__channel-address">{EMAIL}</span>
               <span className="contact-page__channel-cta">
                 Send a message
+                <span className="contact-page__channel-cta-arrow" aria-hidden>
+                  →
+                </span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={INSTAGRAM_URL}
+              className="contact-page__channel"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="contact-page__channel-meta">
+                <span>Photos</span>
+              </div>
+              <h2 className="contact-page__channel-title">Instagram</h2>
+              <p className="contact-page__channel-text">
+                If you want to see my clicked photos, that&apos;s where they
+                live.
+              </p>
+              <span className="contact-page__channel-address">@vatsalastav</span>
+              <span className="contact-page__channel-cta">
+                View on Instagram
                 <span className="contact-page__channel-cta-arrow" aria-hidden>
                   →
                 </span>

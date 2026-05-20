@@ -29,29 +29,29 @@ const FEATURED_PATHS = [
 
 const Home = () => {
   return (
-    <>
-      <Header />
+    <div className="page-shell">
+      <div className="page-shell__main">
+        <Header />
 
-      <section className="home__section">
-        <div className="container home__intro">
-          <p className="home__eyebrow">All in one</p>
-          <h2>A simple home for what I build and what I love.</h2>
-        </div>
+        <section className="home__section">
+          <div className="container home__intro">
+            <p className="home__eyebrow">All in one</p>
+            <h2>A simple home for what I build and what I love.</h2>
+          </div>
 
-        <div className="container home__links">
-          {FEATURED_PATHS.map(({ title, to, copy }) => (
-            <article className="home__link-item" key={title}>
-              <Link to={to} className="home__section-title">
-                {title}
+          <div className="container home__links">
+            {FEATURED_PATHS.map(({ title, to, copy }) => (
+              <Link to={to} className="home__link-card" key={title}>
+                <h3 className="home__link-card-title">{title}</h3>
+                <p className="home__link-card-copy">{copy}</p>
               </Link>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

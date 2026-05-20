@@ -99,14 +99,14 @@ const About = () => {
             </table>
           </div>
           <p className="about__work-resume-note">
-            Want to know more about me?{' '}
+            For the full professional background roles, projects and skills {' '}
             <a
               href={resumeUrl}
               className="about__work-resume-link"
               target="_blank"
               rel="noreferrer"
             >
-              View my resume
+              see my resume
             </a>
             .
           </p>

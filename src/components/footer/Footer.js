@@ -21,31 +21,37 @@ const FOOTER_SOCIALS = [
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/vatsalverma999/',
     icon: <BsLinkedin />,
+    color: '#0A66C2',
   },
   {
     label: 'Instagram',
     href: 'https://instagram.com/vatsalastav',
     icon: <BsInstagram />,
+    color: '#E4405F',
   },
   {
     label: 'Behance',
     href: 'https://www.behance.net/vatsalverma',
     icon: <FaBehance />,
+    color: '#1769FF',
   },
   {
     label: 'GitHub',
     href: 'https://github.com/vatsal259',
     icon: <FaGithub />,
+    color: '#e7ecef',
   },
   {
     label: 'YouTube',
     href: 'https://www.youtube.com/@walkinthecraziestway',
     icon: <FaYoutube />,
+    color: '#FF0000',
   },
   {
     label: 'X',
     href: 'https://x.com/ellipsecircle',
     icon: <RiTwitterXFill />,
+    color: '#e7ecef',
   },
 ];
 
@@ -92,6 +98,7 @@ const Footer = () => {
               rel="noreferrer"
               aria-label={item.label}
               className="footer__social-pill"
+              style={{ color: item.color }}
             >
               {item.icon}
             </a>

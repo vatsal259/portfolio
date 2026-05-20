@@ -1,7 +1,8 @@
 import './Nav.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+
+const LOGO_SRC = `${process.env.PUBLIC_URL}/Logo.png`;
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About Me', to: '/about' },
@@ -36,9 +37,19 @@ const Nav = () => {
   return (
     <div className={`nav${menuOpen ? ' is-open' : ''}`}>
       <div className="container nav__bar">
+        <Link
+          to="/"
+          className="nav__logo-home"
+          onClick={closeMenu}
+          aria-label="Home"
+        >
+          <img src={LOGO_SRC} alt="" className="nav__logo" aria-hidden />
+        </Link>
+
         <nav className="nav__desktop" aria-label="Primary navigation">
           <Link to="/" className="nav__brand" onClick={closeMenu}>
-            Vatsal Verma
+            <img src={LOGO_SRC} alt="" className="nav__logo" aria-hidden />
+            <span className="nav__brand-text">Vatsal Verma</span>
           </Link>
 
           <ul className="nav__list">
@@ -68,7 +79,9 @@ const Nav = () => {
           aria-controls="nav-mobile-menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <FiX aria-hidden /> : <FiMenu aria-hidden />}
+          <span className="nav__toggle-bar" aria-hidden />
+          <span className="nav__toggle-bar" aria-hidden />
+          <span className="nav__toggle-bar" aria-hidden />
         </button>
       </div>
 

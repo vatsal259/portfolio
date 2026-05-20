@@ -24,6 +24,7 @@
     width: 100%;
     max-width: none;
     margin: 0;
+    padding-top: 1.5rem;
 }
 
 .work-page .container {
@@ -33,30 +34,31 @@
 .work-block__head {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    margin-bottom: 1rem;
+    gap: 0.35rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .work-block__eyebrow {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    font-size: 0.74rem;
+    font-size: var(--font-size-meta);
     color: var(--color-primary);
 }
 
 .work-block__title {
     margin: 0;
     color: var(--color-white);
-    font-size: clamp(1.35rem, 2vw, 1.7rem);
-    line-height: 1.2;
+    font-size: var(--font-size-section);
+    line-height: var(--line-height-heading);
     letter-spacing: -0.01em;
     font-weight: 500;
 }
 
 /* Projects — compact image + text row */
 .work-page .projects__list {
-    padding-top: 1.4rem;
     gap: 2rem;
 }
 
@@ -76,35 +78,35 @@
 }
 
 .work-page .projects__meta {
-    font-size: 0.76rem;
+    font-size: var(--font-size-meta);
     letter-spacing: 0.16em;
 }
 
 .work-page .projects__title {
-    font-size: 1.1rem;
+    font-size: var(--font-size-card);
     line-height: 1.35;
 }
 
 .work-page .projects__text {
-    font-size: 0.94rem;
-    line-height: 1.65;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-copy);
     max-width: none;
 }
 
 /* Portfolio — full-width image, text below (overridden in Portfolio.css) */
 .work-page .portfolio__label {
-    font-size: 0.76rem;
+    font-size: var(--font-size-meta);
     letter-spacing: 0.16em;
 }
 
 .work-page .portfolio__title {
-    font-size: 1.1rem;
+    font-size: var(--font-size-card);
     line-height: 1.35;
 }
 
 .work-page .portfolio__text {
-    font-size: 0.94rem;
-    line-height: 1.65;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-copy);
     max-width: none;
 }
 
@@ -136,11 +138,13 @@
         margin-top: 2rem;
     }
 
-    .work-block__head {
-        margin-bottom: 0.85rem;
+    .work-page .projects__container,
+    .work-page .portfolio__container,
+    .work-page .testimonials__container {
+        padding-top: 1.25rem;
     }
 
     .work-block__title {
-        font-size: 1.25rem;
+        font-size: var(--font-size-section);
     }
 }
