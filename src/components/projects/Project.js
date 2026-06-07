@@ -7,23 +7,23 @@ import IMG5 from '../../assets/Fembizz.jpg';
 
 const PROJECTS = [
   {
-    title: 'Animal Detection AI model using CNN',
+    title: 'AI-Powered Animal Detection and Alert System',
     description:
-      'Built a Flask website for animal detection using Convolutional Neural Networks. Real-time message alerts on mobile.',
+      'Built an end-to-end deep learning inference pipeline with CNNs (TensorFlow/Keras) and OpenCV for real-time animal detection (92.68% accuracy), with preprocessing and data augmentation for robustness across lighting conditions. Delivered low-latency event notifications via Twilio REST API — recognized at WildHacks 2021 for the most creative API integration.',
     image: IMG2,
-    tags: ['CNN', 'Flask', 'Python'],
-    year: '2022',
+    tags: ['Python', 'TensorFlow', 'OpenCV', 'CNN'],
+    year: '2021',
     links: [
       { label: 'GitHub', href: 'https://github.com/vatsal259/WildHacks' },
       { label: 'YouTube', href: 'https://youtu.be/3u3mKcQML2Y' },
     ],
   },
   {
-    title: 'Text Summarizer',
+    title: 'NLP Document Summarization Service',
     description:
-      'Built a Flask website for text summarization using Natural Language Processing. Algorithm: LexRank. Stack: Python, NLTK, Flask, HTML, and CSS.',
+      'Developed a Spring Boot REST microservice with an NLP pipeline (tokenization, stopword removal, sentence segmentation) and LexRank extractive summarization, validated against reference summaries at 85%+ accuracy. Designed modular ingestion and ranking stages exposed via HTTP APIs using layered controllers, a service layer, and REST DTOs.',
     image: IMG3,
-    tags: ['NLP', 'LexRank', 'Flask'],
+    tags: ['Java', 'Spring Boot', 'NLP', 'LexRank'],
     year: '2022',
     links: [
       { label: 'GitHub', href: 'https://github.com/vatsal259/Text-summarizer' },

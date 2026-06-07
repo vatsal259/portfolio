@@ -19,7 +19,7 @@ const FEATURED_PATHS = [
   {
     title: 'Work & Life',
     to: '/work',
-    copy: 'Student builds, life outside code, and stories from the road.',
+    copy: 'Projects, life outside code, and stories from the road.',
   },
   {
     title: 'Read the blog',

@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "solid-principles-ultimate-guide",
+    "title": "One Change Breaks Everything? Five SOLID Principles Fix That",
+    "date": "2026-06-07",
+    "excerpt": "A deep-dive into all five SOLID principles with real-world analogies, bad vs. good code comparisons, and complete code examples. Learn how to write clean, maintainable, and extensible software that your future self will thank you for."
+  },
+  {
+    "slug": "design-patterns-ultimate-guide",
+    "title": "23 Design Patterns Hiding in Your Code — All of Them, Explained",
+    "date": "2026-06-06",
+    "excerpt": "A deep-dive into all 23 GoF design patterns - Creational, Structural, and Behavioral, explained with real-world analogies, UML intent, and complete code examples. Your one-stop reference for writing better, scalable software."
+  },
+  {
+    "slug": "embabel-agent-framework",
+    "title": "Embabel — AI Agent Framework for the JVM",
+    "date": "2025-05-21",
+    "excerpt": "A deep-dive into Embabel - the JVM-native agent framework that replaces brittle workflows with type-driven, goal-oriented AI planning. Learn the core concepts, write your first agent, and understand why it's a step ahead of LangGraph, CrewAI, and similar tools."
+  }
+]

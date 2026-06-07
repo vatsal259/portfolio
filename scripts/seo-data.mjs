@@ -1,3 +1,5 @@
+import { BLOG_POSTS } from './blogPosts.mjs';
+
 export const SITE_URL = 'https://www.vatsalverma.in';
 export const SITE_NAME = 'Vatsal Verma';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/Logo.png`;
@@ -45,14 +47,36 @@ export const PAGE_SEO = {
   '/work': {
     title: 'Work & Life | Vatsal Verma',
     description:
-      'Selected projects, life outside code, and YouTube stories — student builds, biking, photography, and more.',
+      'Selected projects, life outside code, and YouTube stories — engineering builds, biking, photography, and more.',
     body: '<h1>Work &amp; Life</h1><p>Projects, personal pursuits, and stories from the road.</p>',
   },
   '/blog': {
     title: 'Blog | Vatsal Verma',
     description:
-      'Technical notes and essays on software engineering, systems design, and lessons from building in production.',
-    body: '<h1>Blog</h1><p>Technical notes on software engineering and systems design.</p>',
+      'Technical essays on SOLID principles, GoF design patterns, JVM AI agents (Embabel), systems design, and lessons from building in production.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: 'Vatsal Verma Blog',
+        url: `${SITE_URL}/blog`,
+        description:
+          'Technical essays on SOLID principles, GoF design patterns, JVM AI agents (Embabel), systems design, and lessons from building in production.',
+        author: { '@type': 'Person', name: 'Vatsal Verma', url: SITE_URL },
+        blogPost: BLOG_POSTS.map((post) => ({
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          url: `${SITE_URL}/blog/${post.slug}`,
+          author: { '@type': 'Person', name: 'Vatsal Verma', url: SITE_URL },
+        })),
+      },
+    ],
+    body: `<h1>Blog</h1><ul>${BLOG_POSTS.map(
+      (post) =>
+        `<li><a href="/blog/${post.slug}">${post.title}</a> — ${post.excerpt}</li>`
+    ).join('')}</ul>`,
   },
   '/contact': {
     title: 'Contact | Vatsal Verma',
@@ -62,10 +86,14 @@ export const PAGE_SEO = {
   },
 };
 
-export function buildArticleSeo(slug, frontmatter) {
-  const title = frontmatter.title || slug;
+export function buildArticleSeo(slug, frontmatter = {}) {
+  const known = BLOG_POSTS.find((post) => post.slug === slug);
+  const title = frontmatter.title || known?.title || slug;
   const description =
-    frontmatter.excerpt || `Article by Vatsal Verma: ${title}`;
+    frontmatter.excerpt ||
+    known?.excerpt ||
+    `Article by Vatsal Verma: ${title}`;
+  const date = frontmatter.date || known?.date;
 
   return {
     title: `${title} | Vatsal Verma`,
@@ -75,8 +103,8 @@ export function buildArticleSeo(slug, frontmatter) {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: title,
-        description: frontmatter.excerpt || undefined,
-        datePublished: frontmatter.date || undefined,
+        description: description || undefined,
+        datePublished: date || undefined,
         author: { '@type': 'Person', name: 'Vatsal Verma', url: SITE_URL },
         publisher: { '@type': 'Person', name: 'Vatsal Verma', url: SITE_URL },
         mainEntityOfPage: {

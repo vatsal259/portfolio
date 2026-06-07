@@ -1,3 +1,5 @@
+import { BLOG_POSTS } from './blogPosts';
+
 export const SITE_URL = 'https://www.vatsalverma.in';
 export const SITE_NAME = 'Vatsal Verma';
 export const DEFAULT_DESCRIPTION =
@@ -68,13 +70,13 @@ export const PAGE_SEO = {
   work: {
     title: 'Work & Life',
     description:
-      'Selected projects, life outside code, and YouTube stories — student builds, biking, photography, and more.',
+      'Selected projects, life outside code, and YouTube stories — engineering builds, biking, photography, and more.',
     path: '/work',
   },
   blog: {
     title: 'Blog',
     description:
-      'Technical notes and essays on software engineering, systems design, and lessons from building in production.',
+      'Technical essays on SOLID principles, GoF design patterns, JVM AI agents (Embabel), systems design, and lessons from building in production.',
     path: '/blog',
   },
   contact: {
@@ -86,7 +88,7 @@ export const PAGE_SEO = {
 };
 
 export function buildArticleSchema(post) {
-  if (!post) return null;
+  if (!post?.slug) return null;
 
   return {
     '@context': 'https://schema.org',
@@ -109,5 +111,21 @@ export function buildArticleSchema(post) {
       '@id': `${SITE_URL}/blog/${post.slug}`,
     },
     url: `${SITE_URL}/blog/${post.slug}`,
+  };
+}
+
+export function buildBlogListingSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `${SITE_NAME} Blog`,
+    url: `${SITE_URL}/blog`,
+    description: PAGE_SEO.blog.description,
+    author: {
+      '@type': 'Person',
+      name: 'Vatsal Verma',
+      url: SITE_URL,
+    },
+    blogPost: BLOG_POSTS.map((post) => buildArticleSchema(post)),
   };
 }

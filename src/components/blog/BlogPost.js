@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import SectionPage from '../../pages/SectionPage';
 import Seo from '../seo/Seo';
 import { buildArticleSchema } from '../../seo/siteConfig';
+import { getBlogPostBySlug } from '../../seo/blogPosts';
 import { useBlogPost } from '../../blog/useBlogPost';
 import { formatDate } from '../../blog/formatDate';
 import './Blog.css';
@@ -25,18 +26,21 @@ const BlogPost = () => {
   const { slug } = useParams();
   const { post, loading, error } = useBlogPost(slug);
 
-  const heroTitle = post?.title || (loading ? 'Loading…' : 'Article');
+  const seoPost = post || getBlogPostBySlug(slug);
+  const heroTitle = post?.title || seoPost?.title || (loading ? 'Loading…' : 'Article');
   const heroSubtitle = formatArticleMeta(post);
 
   return (
     <>
-    {post && (
+    {seoPost && (
       <Seo
-        title={post.title}
-        description={post.excerpt || `Article by Vatsal Verma: ${post.title}`}
-        path={`/blog/${post.slug}`}
+        title={seoPost.title}
+        description={
+          seoPost.excerpt || `Article by Vatsal Verma: ${seoPost.title}`
+        }
+        path={`/blog/${slug}`}
         type="article"
-        jsonLd={buildArticleSchema(post)}
+        jsonLd={buildArticleSchema(seoPost)}
       />
     )}
     <SectionPage

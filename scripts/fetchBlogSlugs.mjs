@@ -1,7 +1,9 @@
+import { BLOG_SLUGS } from './blogPosts.mjs';
+
 const GITHUB_API =
   'https://api.github.com/repos/vatsal259/contents/contents/blog?ref=main';
 
-const FALLBACK_SLUGS = ['embabel-agent-framework'];
+const FALLBACK_SLUGS = BLOG_SLUGS;
 
 export async function fetchBlogSlugs() {
   try {

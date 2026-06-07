@@ -15,7 +15,7 @@ const AboutPage = () => {
     <SectionPage
       eyebrow="Profile"
       title="This Is Me, In Full"
-      subtitle="Code that pays the bills, a bike that clears my head, and a camera that makes me notice the world."
+      subtitle="My life is a balance of writing brilliant code, while my paychecks are immediately funneled into my two obsessions, a bike and a camera."
     >
       <About />
     </SectionPage>

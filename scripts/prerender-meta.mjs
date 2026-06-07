@@ -2,10 +2,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchBlogSlugs } from './fetchBlogSlugs.mjs';
+import { BLOG_SLUGS } from './blogPosts.mjs';
 import {
   PAGE_SEO,
   SITE_URL,
-  DEFAULT_OG_IMAGE,
   buildArticleSeo,
 } from './seo-data.mjs';
 
@@ -125,7 +125,8 @@ async function writeRouteHtml(baseHtml, route, seo) {
 
 async function main() {
   const baseHtml = await fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8');
-  const slugs = await fetchBlogSlugs();
+  const fetchedSlugs = await fetchBlogSlugs();
+  const slugs = [...new Set([...BLOG_SLUGS, ...fetchedSlugs])];
 
   for (const [route, seo] of Object.entries(PAGE_SEO)) {
     await writeRouteHtml(baseHtml, route, seo);
