@@ -26,28 +26,28 @@ export const WEBSITE_SCHEMA = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    'Vatsal Verma — software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.',
+    'Vatsal Verma - software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.',
   author: { '@type': 'Person', name: 'Vatsal Verma', url: SITE_URL },
 };
 
 export const PAGE_SEO = {
   '/': {
-    title: 'Vatsal Verma — Software Engineer',
+    title: 'Vatsal Verma - Software Engineer',
     description:
-      'Vatsal Verma — software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.',
+      'Vatsal Verma - software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.',
     jsonLd: [PERSON_SCHEMA, WEBSITE_SCHEMA],
     body: '<h1>Vatsal Verma</h1><p>Software Engineer at Amdocs. Biker and photographer. Explore my work, blog, and contact.</p>',
   },
   '/about': {
     title: 'About | Vatsal Verma',
     description:
-      'Software engineer at Amdocs. Story, work history, and obsessions — code, rides, and photography.',
+      'Software engineer at Amdocs. Story, work history, and obsessions - code, rides, and photography.',
     body: '<h1>About Vatsal Verma</h1><p>Software engineer at Amdocs with a story shaped by code, rides, and photography.</p>',
   },
   '/work': {
     title: 'Work & Life | Vatsal Verma',
     description:
-      'Selected projects, life outside code, and YouTube stories — engineering builds, biking, photography, and more.',
+      'Selected projects, life outside code, and YouTube stories - engineering builds, biking, photography, and more.',
     body: '<h1>Work &amp; Life</h1><p>Projects, personal pursuits, and stories from the road.</p>',
   },
   '/blog': {
@@ -75,7 +75,7 @@ export const PAGE_SEO = {
     ],
     body: `<h1>Blog</h1><ul>${BLOG_POSTS.map(
       (post) =>
-        `<li><a href="/blog/${post.slug}">${post.title}</a> — ${post.excerpt}</li>`
+        `<li><a href="/blog/${post.slug}">${post.title}</a> - ${post.excerpt}</li>`
     ).join('')}</ul>`,
   },
   '/contact': {

@@ -98,12 +98,10 @@ function injectSeo(baseHtml, route, seo) {
       `<meta name="twitter:description" content="${seo.description}">`
     );
 
-  if (route !== '/') {
-    html = html.replace(
-      /<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/,
-      ''
-    );
-  }
+  html = html.replace(
+    /<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g,
+    ''
+  );
 
   if (jsonLdScripts) {
     html = html.replace('</head>', `    ${jsonLdScripts}\n</head>`);

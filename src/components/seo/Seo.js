@@ -43,7 +43,7 @@ function upsertLink(rel, href) {
 
 function upsertJsonLd(schemas) {
   document
-    .querySelectorAll('script[data-seo-jsonld="true"]')
+    .querySelectorAll('script[type="application/ld+json"]')
     .forEach((node) => node.remove());
 
   schemas.forEach((schema, index) => {

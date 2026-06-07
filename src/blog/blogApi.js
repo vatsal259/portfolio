@@ -1,5 +1,6 @@
 import { blogConfig } from './blogConfig';
 import { parsePost, parsePostSummary } from './parsePost';
+import { BLOG_POSTS } from '../seo/blogPosts';
 
 /** @type {Map<string, { sha: string, summary: object }>} */
 const fileCache = new Map();
@@ -92,12 +93,41 @@ async function loadPostsFromLocalIndex() {
   return posts;
 }
 
+async function loadPostsFromStaticManifest() {
+  const posts = await Promise.all(
+    BLOG_POSTS.map(async (manifestPost) => {
+      try {
+        const raw = await fetchText(blogConfig.postUrl(manifestPost.slug));
+        return parsePostSummary(raw, manifestPost.slug);
+      } catch {
+        return {
+          slug: manifestPost.slug,
+          title: manifestPost.title,
+          date: manifestPost.date,
+          excerpt: manifestPost.excerpt,
+          readingMinutes: 0,
+        };
+      }
+    })
+  );
+
+  return posts;
+}
+
 export async function fetchPostIndex() {
   if (blogConfig.isLocal) {
     return loadPostsFromLocalIndex();
   }
 
-  return loadPostsFromGithubFolder();
+  try {
+    return await loadPostsFromGithubFolder();
+  } catch (error) {
+    console.warn(
+      'GitHub Contents API unavailable; falling back to static blog manifest.',
+      error
+    );
+    return loadPostsFromStaticManifest();
+  }
 }
 
 export async function fetchPost(slug, manifestMeta = {}) {

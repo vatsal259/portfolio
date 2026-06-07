@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import SectionPage from '../../pages/SectionPage';
 import Seo from '../seo/Seo';
@@ -9,6 +9,7 @@ import './Blog.css';
 
 const BlogList = () => {
   const { posts, loading, error } = useBlogPosts();
+  const blogListingSchema = useMemo(() => buildBlogListingSchema(), []);
 
   return (
     <>
@@ -16,7 +17,7 @@ const BlogList = () => {
       title={PAGE_SEO.blog.title}
       description={PAGE_SEO.blog.description}
       path={PAGE_SEO.blog.path}
-      jsonLd={buildBlogListingSchema()}
+      jsonLd={blogListingSchema}
     />
     <SectionPage
       eyebrow="Writing"
