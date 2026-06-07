@@ -5,7 +5,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="work-block">
       <div className="container work-block__head">
-        <p className="work-block__eyebrow">03 — Watch</p>
+        <p className="work-block__eyebrow">03 - Watch</p>
         <h2 className="work-block__title">YouTube Stories</h2>
       </div>
 

@@ -1,10 +1,10 @@
-/* Blog — aligned with SectionPage / WorkPage (flat, minimal) */
+/* Blog - aligned with SectionPage / WorkPage (flat, minimal) */
 
 .blog-page {
   margin-top: 0;
 }
 
-/* Wider column than default .container (75%) — hero + body share the same width */
+/* Wider column than default .container (75%) - hero + body share the same width */
 .section-page:has(.blog-page) .section-page__hero-wrap {
   width: min(94%, 58rem);
   max-width: 58rem;

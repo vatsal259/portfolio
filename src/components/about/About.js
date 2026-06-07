@@ -34,13 +34,13 @@ const QUICK_FACTS = [
 
 const WORK_HISTORY = [
   {
-    period: 'Aug 2023 — Present',
+    period: 'Aug 2023 - Present',
     role: 'Software Developer',
     company: 'Amdocs',
     location: 'India',
   },
   {
-    period: 'Aug 2021 — Feb 2022',
+    period: 'Aug 2021 - Feb 2022',
     role: 'AI/ML Research Intern',
     company: 'Indian Institute of Technology (IIT-BHU)',
     location: 'Varanasi, India',
@@ -133,7 +133,7 @@ const About = () => {
             </table>
           </div>
           <p className="about__work-resume-note">
-            For the full résumé — roles, projects, and skills —{' '}
+            For the full résumé - roles, projects, and skills -{' '}
             <a
               href={resumeUrl}
               className="about__work-resume-link"

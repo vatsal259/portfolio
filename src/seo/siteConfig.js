@@ -3,7 +3,7 @@ import { BLOG_POSTS } from './blogPosts';
 export const SITE_URL = 'https://www.vatsalverma.in';
 export const SITE_NAME = 'Vatsal Verma';
 export const DEFAULT_DESCRIPTION =
-  'Vatsal Verma — software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.';
+  'Vatsal Verma - software engineer at Amdocs, biker, and photographer. Portfolio, projects, blog, and contact.';
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/Logo.png`;
 
@@ -57,20 +57,20 @@ export const WEBSITE_SCHEMA = {
 
 export const PAGE_SEO = {
   home: {
-    fullTitle: 'Vatsal Verma — Software Engineer',
+    fullTitle: 'Vatsal Verma - Software Engineer',
     description: DEFAULT_DESCRIPTION,
     path: '/',
   },
   about: {
     title: 'About',
     description:
-      'Software engineer at Amdocs. Story, work history, and obsessions — code, rides, and photography.',
+      'Software engineer at Amdocs. Story, work history, and obsessions - code, rides, and photography.',
     path: '/about',
   },
   work: {
     title: 'Work & Life',
     description:
-      'Selected projects, life outside code, and YouTube stories — engineering builds, biking, photography, and more.',
+      'Selected projects, life outside code, and YouTube stories - engineering builds, biking, photography, and more.',
     path: '/work',
   },
   blog: {

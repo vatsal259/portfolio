@@ -9,7 +9,7 @@ const PROJECTS = [
   {
     title: 'AI-Powered Animal Detection and Alert System',
     description:
-      'Built an end-to-end deep learning inference pipeline with CNNs (TensorFlow/Keras) and OpenCV for real-time animal detection (92.68% accuracy), with preprocessing and data augmentation for robustness across lighting conditions. Delivered low-latency event notifications via Twilio REST API — recognized at WildHacks 2021 for the most creative API integration.',
+      'Built an end-to-end deep learning inference pipeline with CNNs (TensorFlow/Keras) and OpenCV for real-time animal detection (92.68% accuracy), with preprocessing and data augmentation for robustness across lighting conditions. Delivered low-latency event notifications via Twilio REST API - recognized at WildHacks 2021 for the most creative API integration.',
     image: IMG2,
     tags: ['Python', 'TensorFlow', 'OpenCV', 'CNN'],
     year: '2021',
@@ -63,7 +63,7 @@ const Project = () => {
   return (
     <section id="projects" className="work-block">
       <div className="container work-block__head">
-        <p className="work-block__eyebrow">01 — Work</p>
+        <p className="work-block__eyebrow">01 - Work</p>
         <h2 className="work-block__title">Selected Projects</h2>
       </div>
 

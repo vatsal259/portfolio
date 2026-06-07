@@ -86,7 +86,7 @@ const Contact = () => {
               </div>
               <h2 className="contact-page__channel-title">Instagram</h2>
               <p className="contact-page__channel-text">
-                Photos I&apos;ve taken — that&apos;s where they live.
+                Photos I&apos;ve taken - that&apos;s where they live.
               </p>
               <span className="contact-page__channel-address">@vatsalastav</span>
               <span className="contact-page__channel-cta">

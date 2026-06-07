@@ -1,4 +1,4 @@
-/* WorkPage — compact, minimal */
+/* WorkPage - compact, minimal */
 
 .work-page {
     max-width: 60rem;
@@ -57,7 +57,7 @@
     font-weight: 500;
 }
 
-/* Projects — compact image + text row */
+/* Projects - compact image + text row */
 .work-page .projects__list {
     gap: 2rem;
 }
@@ -93,7 +93,7 @@
     max-width: none;
 }
 
-/* Portfolio — full-width image, text below (overridden in Portfolio.css) */
+/* Portfolio - full-width image, text below (overridden in Portfolio.css) */
 .work-page .portfolio__label {
     font-size: var(--font-size-meta);
     letter-spacing: 0.16em;
