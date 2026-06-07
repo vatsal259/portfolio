@@ -9,7 +9,7 @@ const PROJECTS = [
   {
     title: 'Animal Detection AI model using CNN',
     description:
-      'Built a flask website for animal detection using Convolutional Neural Network. Realtime message alert on the mobile phone.',
+      'Built a Flask website for animal detection using Convolutional Neural Networks. Real-time message alerts on mobile.',
     image: IMG2,
     tags: ['CNN', 'Flask', 'Python'],
     year: '2022',
@@ -21,7 +21,7 @@ const PROJECTS = [
   {
     title: 'Text Summarizer',
     description:
-      'Built a flask website for text summarization using Natural Language Programming. Algorithm used: LexRank. Tech stack: Python, NLTK library, Flask, HTML and CSS.',
+      'Built a Flask website for text summarization using Natural Language Processing. Algorithm: LexRank. Stack: Python, NLTK, Flask, HTML, and CSS.',
     image: IMG3,
     tags: ['NLP', 'LexRank', 'Flask'],
     year: '2022',

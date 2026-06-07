@@ -51,6 +51,40 @@ const About = () => {
   return (
     <section id="about">
       <div className="container about__container">
+        <div className="about__identity">
+          <p className="about__identity-label">Code, Roads, Frames</p>
+          <div className="about__story">
+            <p>
+              I&apos;m a software engineer who quietly believes the best code reads a lot
+              like a well-worn road, predictable in the right places, surprising in the
+              right ways.
+            </p>
+            <p>
+              By day, I build microservices and APIs at Amdocs, where I get to obsess over
+              distributed systems, deployment pipelines, and the elegant geometry of a healthy
+              architecture. I came up through AI/ML research at IIT-BHU, and that curiosity,
+              for models, for problems, for why things work, never really left.
+            </p>
+            <p>
+              Off the clock, the ritual is simple: keys, helmet, camera. The bike takes me
+              places a screen never can; the camera makes sure I remember them. Somewhere
+              between a quiet curve on a Sunday morning and the way light falls on a
+              stranger&apos;s face is where I do my best thinking, and most of my favorite
+              living.
+            </p>
+          </div>
+
+          <div className="about__obsessions">
+            {OBSESSIONS.map((item) => (
+              <article className="about__obsession" key={item.label}>
+                <span className="about__obsession-label">{item.label}</span>
+                <h3 className="about__obsession-title">{item.title}</h3>
+                <p className="about__obsession-desc">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
         <div className="about__facts">
           {QUICK_FACTS.map((fact) => (
             <div className="about__fact" key={fact.label}>
@@ -99,7 +133,7 @@ const About = () => {
             </table>
           </div>
           <p className="about__work-resume-note">
-            For the full professional background roles, projects and skills {' '}
+            For the full résumé — roles, projects, and skills —{' '}
             <a
               href={resumeUrl}
               className="about__work-resume-link"
@@ -110,40 +144,6 @@ const About = () => {
             </a>
             .
           </p>
-        </div>
-
-        <div className="about__identity">
-          <p className="about__identity-label">Code, Roads, Frames</p>
-          <div className="about__story">
-            <p>
-              I&apos;m a software engineer who quietly believes the best code reads a lot
-              like a well-worn road, predictable in the right places, surprising in the
-              right ways.
-            </p>
-            <p>
-              By day, I build microservices and APIs at Amdocs, where I get to obsess over
-              distributed systems, deployment pipelines, and the elegant geometry of a healthy
-              architecture. I came up through AI/ML research at IIT-BHU, and that curiosity,
-              for models, for problems, for why things work, never really left.
-            </p>
-            <p>
-              Off the clock, the ritual is simple: keys, helmet, camera. The bike takes me
-              places a screen never can; the camera makes sure I remember them. Somewhere
-              between a quiet curve on a Sunday morning and the way light falls on a
-              stranger&apos;s face is where I do my best thinking, and most of my favorite
-              living.
-            </p>
-          </div>
-
-          <div className="about__obsessions">
-            {OBSESSIONS.map((item) => (
-              <article className="about__obsession" key={item.label}>
-                <span className="about__obsession-label">{item.label}</span>
-                <h3 className="about__obsession-title">{item.title}</h3>
-                <p className="about__obsession-desc">{item.description}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </div>
     </section>

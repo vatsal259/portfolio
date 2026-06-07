@@ -47,7 +47,7 @@ const STORIES = [
     paragraphs: [
       'At the start of 2024, I made a decision that changed my life to take my health seriously. I committed to the gym, followed a strict diet, and stayed consistent even when it was hard.',
       'Since then, I’ve lost over 22 kgs, but what I’ve gained is so much more than what I lost. This journey hasn’t just transformed my body, it’s helped me rebuild my mindset.',
-      'I’ve become more focused, more disciplined, and a lot kinder to myself. The routine, the challenge, the progres, it all gave me a sense of control and clarity I didn’t know I needed.',
+      'I’ve become more focused, more disciplined, and a lot kinder to myself. The routine, the challenge, the progress — it all gave me a sense of control and clarity I didn’t know I needed.',
       'This isn’t a phase. It’s part of who I am now.',
     ],
   },

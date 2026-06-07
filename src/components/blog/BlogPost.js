@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import SectionPage from '../../pages/SectionPage';
+import Seo from '../seo/Seo';
+import { buildArticleSchema } from '../../seo/siteConfig';
 import { useBlogPost } from '../../blog/useBlogPost';
 import { formatDate } from '../../blog/formatDate';
 import './Blog.css';
@@ -27,6 +29,16 @@ const BlogPost = () => {
   const heroSubtitle = formatArticleMeta(post);
 
   return (
+    <>
+    {post && (
+      <Seo
+        title={post.title}
+        description={post.excerpt || `Article by Vatsal Verma: ${post.title}`}
+        path={`/blog/${post.slug}`}
+        type="article"
+        jsonLd={buildArticleSchema(post)}
+      />
+    )}
     <SectionPage
       eyebrow="Article"
       title={heroTitle}
@@ -61,6 +73,7 @@ const BlogPost = () => {
         </div>
       </article>
     </SectionPage>
+    </>
   );
 };
 

@@ -2,23 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
+import Seo from '../components/seo/Seo';
+import {
+  PAGE_SEO,
+  PERSON_SCHEMA,
+  WEBSITE_SCHEMA,
+} from '../seo/siteConfig';
 import './Home.css';
 
 const FEATURED_PATHS = [
   {
     title: 'Know me',
     to: '/about',
-    copy: 'Who I am beyond roles, resumes, and job titles.',
+    copy: 'The story, the obsessions, and the work history when you need it.',
   },
   {
-    title: 'See the work',
+    title: 'Work & Life',
     to: '/work',
-    copy: 'Projects, experiments, and technical work I am proud to show.',
+    copy: 'Student builds, life outside code, and stories from the road.',
   },
   {
     title: 'Read the blog',
     to: '/blog',
-    copy: 'Unfiltered notes on engineering, product, and lessons from doing.',
+    copy: 'Technical notes on engineering, systems, and building in production.',
   },
   {
     title: 'Say hi',
@@ -30,6 +36,12 @@ const FEATURED_PATHS = [
 const Home = () => {
   return (
     <div className="page-shell">
+      <Seo
+        fullTitle={PAGE_SEO.home.fullTitle}
+        description={PAGE_SEO.home.description}
+        path={PAGE_SEO.home.path}
+        jsonLd={[PERSON_SCHEMA, WEBSITE_SCHEMA]}
+      />
       <div className="page-shell__main">
         <Header />
 

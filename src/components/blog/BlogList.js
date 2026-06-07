@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionPage from '../../pages/SectionPage';
+import Seo from '../seo/Seo';
+import { PAGE_SEO } from '../../seo/siteConfig';
 import { useBlogPosts } from '../../blog/useBlogPosts';
 import { formatDate } from '../../blog/formatDate';
 import './Blog.css';
@@ -9,6 +11,12 @@ const BlogList = () => {
   const { posts, loading, error } = useBlogPosts();
 
   return (
+    <>
+    <Seo
+      title={PAGE_SEO.blog.title}
+      description={PAGE_SEO.blog.description}
+      path={PAGE_SEO.blog.path}
+    />
     <SectionPage
       eyebrow="Writing"
       title="Blog"
@@ -68,6 +76,7 @@ const BlogList = () => {
         </div>
       </section>
     </SectionPage>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ const LOGO_SRC = `${process.env.PUBLIC_URL}/Logo.png`;
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About Me', to: '/about' },
-  { id: 'work', label: 'Build + Life', to: '/work' },
+  { id: 'work', label: 'Work & Life', to: '/work' },
   { id: 'blog', label: 'Blog', to: '/blog' },
   { id: 'contact', label: 'Say Hi', to: '/contact' },
 ];
