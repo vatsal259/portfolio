@@ -103,7 +103,8 @@ async function loadPostsFromStaticManifest() {
         return {
           slug: manifestPost.slug,
           title: manifestPost.title,
-          date: manifestPost.date,
+          date: manifestPost.date || '',
+          pinned: Boolean(manifestPost.pinned),
           excerpt: manifestPost.excerpt,
           readingMinutes: 0,
         };

@@ -51,7 +51,7 @@ const BlogList = () => {
                         {post.date && (
                           <time dateTime={post.date}>{formatDate(post.date)}</time>
                         )}
-                        {post.readingMinutes > 0 && (
+                        {post.date && post.readingMinutes > 0 && (
                           <span className="blog-card__meta-sep" aria-hidden>
                             ·
                           </span>

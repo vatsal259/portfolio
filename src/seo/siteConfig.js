@@ -1,4 +1,5 @@
 import { BLOG_POSTS } from './blogPosts';
+import { sortPostsByDate } from '../blog/formatDate';
 
 export const SITE_URL = 'https://www.vatsalverma.in';
 export const SITE_NAME = 'Vatsal Verma';
@@ -126,6 +127,6 @@ export function buildBlogListingSchema() {
       name: 'Vatsal Verma',
       url: SITE_URL,
     },
-    blogPost: BLOG_POSTS.map((post) => buildArticleSchema(post)),
+    blogPost: sortPostsByDate(BLOG_POSTS).map((post) => buildArticleSchema(post)),
   };
 }

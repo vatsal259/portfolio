@@ -9,9 +9,16 @@ export function formatDate(dateStr) {
   });
 }
 
+function toSortableTime(dateStr) {
+  const time = new Date(dateStr || 0).getTime();
+  return Number.isNaN(time) ? 0 : time;
+}
+
 export function sortPostsByDate(posts) {
   return [...posts].sort((a, b) => {
-    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-    return new Date(b.date || 0) - new Date(a.date || 0);
+    const aPinned = Boolean(a.pinned);
+    const bPinned = Boolean(b.pinned);
+    if (aPinned !== bPinned) return aPinned ? -1 : 1;
+    return toSortableTime(b.date) - toSortableTime(a.date);
   });
 }
