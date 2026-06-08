@@ -10,7 +10,8 @@ export function formatDate(dateStr) {
 }
 
 export function sortPostsByDate(posts) {
-  return [...posts].sort(
-    (a, b) => new Date(b.date || 0) - new Date(a.date || 0)
-  );
+  return [...posts].sort((a, b) => {
+    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+    return new Date(b.date || 0) - new Date(a.date || 0);
+  });
 }

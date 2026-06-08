@@ -34,6 +34,10 @@ function estimateReadingMinutes(text) {
   return Math.max(1, Math.ceil(words / 220));
 }
 
+function parsePinned(value) {
+  return value === 'true' || value === true;
+}
+
 export function parsePostSummary(rawMarkdown, slug) {
   const { data, content } = parseFrontmatter(rawMarkdown);
 
@@ -41,6 +45,7 @@ export function parsePostSummary(rawMarkdown, slug) {
     slug,
     title: data.title || slugToTitle(slug),
     date: data.date || '',
+    pinned: parsePinned(data.pinned),
     excerpt: data.excerpt || '',
     readingMinutes: estimateReadingMinutes(content),
   };
@@ -54,6 +59,7 @@ export function parsePost(rawMarkdown, manifestMeta = {}) {
   return {
     title: data.title || manifestMeta.title || 'Untitled',
     date: data.date || manifestMeta.date || '',
+    pinned: parsePinned(data.pinned) || Boolean(manifestMeta.pinned),
     excerpt: data.excerpt || manifestMeta.excerpt || '',
     slug: manifestMeta.slug || data.slug || '',
     readingMinutes:
