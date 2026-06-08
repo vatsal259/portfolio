@@ -41,7 +41,11 @@ const BlogList = () => {
                     <Link
                       to={`/blog/${post.slug}`}
                       className="blog-card__link"
-                      aria-label={`Read article: ${post.title}`}
+                      aria-label={
+                        post.pinned
+                          ? `Pinned article: ${post.title}`
+                          : `Read article: ${post.title}`
+                      }
                     >
                       <div className="blog-card__meta">
                         {post.date && (
@@ -57,7 +61,12 @@ const BlogList = () => {
                         )}
                       </div>
 
-                      <h2 className="blog-card__title">{post.title}</h2>
+                      <h2 className="blog-card__title">
+                        {post.pinned && (
+                          <span aria-hidden="true">📌 </span>
+                        )}
+                        {post.title}
+                      </h2>
 
                       {post.excerpt && (
                         <p className="blog-card__excerpt">{post.excerpt}</p>
