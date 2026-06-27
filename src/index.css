@@ -11,14 +11,22 @@
 }
 
 :root {
-    --color-bg: #0b0f14;
-    --color-bg-variant: #171d25;
-    --color-primary: #89c9f3;
-    --color-primary-variant: #89c9f3;
-    --color-white: #e7ecef;
-    --color-light: #cfe2ef;
-    --color-border: rgba(190, 218, 236, 0.26);
-    --shadow-soft: none;
+    color-scheme: dark;
+
+    --color-bg: #15151a;
+    --color-bg-variant: #212128;
+    --color-primary: #818cf8;
+    --color-primary-variant: #818cf8;
+    --color-white: #ececf2;
+    --color-light: #a0a0b0;
+    --color-muted: #787888;
+    --color-muted-subtle: #5c5c6a;
+    --color-primary-subtle: #252538;
+    --color-nav-bg: #15151a;
+    --color-overlay: #15151a;
+    --color-border: #333340;
+    --color-error: #f5a5a5;
+    --color-code: #a0a0b0;
     --radius-card: 1rem;
 
     --transition: all 400ms ease;
@@ -51,8 +59,53 @@
     --container-width-sm: 90%;
 }
 
+[data-theme="light"] {
+    color-scheme: light;
+
+    --color-bg: #f4f4f7;
+    --color-bg-variant: #ececf2;
+    --color-primary: #6366f1;
+    --color-primary-variant: #6366f1;
+    --color-white: #1a1a22;
+    --color-light: #4b4b5a;
+    --color-muted: #6b6b7a;
+    --color-muted-subtle: #8a8a98;
+    --color-primary-subtle: #e8e8fc;
+    --color-nav-bg: #f4f4f7;
+    --color-overlay: #f4f4f7;
+    --color-border: #d8d8e0;
+    --color-error: #c53030;
+    --color-code: #4b4b5a;
+}
+
 html {
     scroll-behavior: smooth;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    animation: theme-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes theme-reveal {
+    from {
+        clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%));
+    }
+    to {
+        clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none !important;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -142,7 +195,7 @@ section > h2::after {
     width: 3.2rem;
     height: 2px;
     margin: 0.55rem auto 0;
-    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    background: var(--color-primary);
 }
 
 .text-light {

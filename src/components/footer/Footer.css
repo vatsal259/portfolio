@@ -22,18 +22,18 @@ footer a {
   letter-spacing: 0.02em;
   color: var(--color-white);
   margin-bottom: 0.2rem;
-  transition: opacity 220ms ease;
+  transition: color 220ms ease;
 }
 
 .footer__name:hover {
-  opacity: 0.85;
+  color: var(--color-light);
   color: var(--color-white);
 }
 
 .footer__tagline {
   font-size: var(--font-size-small);
   font-weight: 400;
-  color: rgba(231, 236, 239, 0.75);
+  color: var(--color-muted);
   margin: 0;
 }
 
@@ -47,7 +47,7 @@ footer a {
 
 .footer__links a {
   font-size: var(--font-size-small);
-  opacity: 0.9;
+  color: var(--color-light);
 }
 
 .footer__links a:hover {
@@ -90,10 +90,14 @@ footer a {
   transform: translateY(-1px);
 }
 
+.footer__social-pill--neutral {
+  color: var(--color-light);
+}
+
 .footer__copyright {
   margin: 0;
   font-size: var(--font-size-caption);
-  color: rgba(231, 236, 239, 0.65);
+  color: var(--color-muted-subtle);
 }
 
 @media screen and (max-width: 600px) {

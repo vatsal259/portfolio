@@ -28,7 +28,7 @@
 }
 
 .blog-status--error {
-  color: #f5a5a5;
+  color: var(--color-error);
 }
 
 .blog-list {
@@ -66,7 +66,7 @@
 }
 
 .blog-card__meta-sep {
-  opacity: 0.65;
+  color: var(--color-muted);
 }
 
 .blog-card__title {
@@ -217,11 +217,11 @@
 }
 
 .blog-prose code {
-  background: rgba(137, 201, 243, 0.08);
+  background: var(--color-primary-subtle);
   padding: 0.12rem 0.3rem;
   border-radius: 0.2rem;
   font-size: var(--font-size-small);
-  color: #bce2fa;
+  color: var(--color-code);
 }
 
 .blog-prose pre {
