@@ -26,22 +26,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.vatsalverma.in/blog/interesting-finds</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.vatsalverma.in/blog/solid-principles-ultimate-guide</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.vatsalverma.in/blog/design-patterns-ultimate-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.vatsalverma.in/blog/dp-basic-to-advanced</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.vatsalverma.in/blog/embabel-agent-framework</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vatsalverma.in/blog/interesting-finds</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vatsalverma.in/blog/introducing-docube-db</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vatsalverma.in/blog/langchain-langgraph-blog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vatsalverma.in/blog/solid-principles-ultimate-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
