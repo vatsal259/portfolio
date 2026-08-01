@@ -1,6 +1,8 @@
 import './Nav.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ThemeToggle from '../theme/ThemeToggle';
+import { useTheme } from '../../theme/useTheme';
 
 const LOGO_SRC = `${process.env.PUBLIC_URL}/Logo.png`;
 
@@ -14,6 +16,7 @@ const NAV_ITEMS = [
 const Nav = () => {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setMenuOpen(false);
@@ -52,37 +55,51 @@ const Nav = () => {
             <span className="nav__brand-text">Vatsal Verma</span>
           </Link>
 
-          <ul className="nav__list">
-            {NAV_ITEMS.map(({ id, label, to }) => {
-              const isActive = isPathActive(to);
-              return (
-                <li key={id}>
-                  <Link
-                    to={to}
-                    className={`nav__link${isActive ? ' is-active' : ''}`}
-                    aria-current={isActive ? 'page' : undefined}
-                    onClick={closeMenu}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="nav__actions">
+            <ul className="nav__list">
+              {NAV_ITEMS.map(({ id, label, to }) => {
+                const isActive = isPathActive(to);
+                return (
+                  <li key={id}>
+                    <Link
+                      to={to}
+                      className={`nav__link${isActive ? ' is-active' : ''}`}
+                      aria-current={isActive ? 'page' : undefined}
+                      onClick={closeMenu}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <ThemeToggle
+              theme={theme}
+              onToggle={toggleTheme}
+              className="theme-toggle--desktop"
+            />
+          </div>
         </nav>
 
-        <button
-          type="button"
-          className="nav__toggle"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          aria-controls="nav-mobile-menu"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="nav__toggle-bar" aria-hidden />
-          <span className="nav__toggle-bar" aria-hidden />
-          <span className="nav__toggle-bar" aria-hidden />
-        </button>
+        <div className="nav__mobile-controls">
+          <ThemeToggle
+            theme={theme}
+            onToggle={toggleTheme}
+            className="theme-toggle--bar"
+          />
+          <button
+            type="button"
+            className="nav__toggle"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="nav-mobile-menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="nav__toggle-bar" aria-hidden />
+            <span className="nav__toggle-bar" aria-hidden />
+            <span className="nav__toggle-bar" aria-hidden />
+          </button>
+        </div>
       </div>
 
       <div

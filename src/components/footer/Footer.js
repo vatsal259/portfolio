@@ -39,7 +39,7 @@ const FOOTER_SOCIALS = [
     label: 'GitHub',
     href: 'https://github.com/vatsal259',
     icon: <FaGithub />,
-    color: '#e7ecef',
+    neutral: true,
   },
   {
     label: 'YouTube',
@@ -51,7 +51,7 @@ const FOOTER_SOCIALS = [
     label: 'X',
     href: 'https://x.com/ellipsecircle',
     icon: <RiTwitterXFill />,
-    color: '#e7ecef',
+    neutral: true,
   },
 ];
 
@@ -97,8 +97,8 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label={item.label}
-              className="footer__social-pill"
-              style={{ color: item.color }}
+              className={`footer__social-pill${item.neutral ? ' footer__social-pill--neutral' : ''}`}
+              style={item.color ? { color: item.color } : undefined}
             >
               {item.icon}
             </a>

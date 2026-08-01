@@ -38,8 +38,7 @@
   font-size: var(--font-size-caption);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-light);
-  opacity: 0.78;
+  color: var(--color-muted);
 }
 
 .contact-page__fact-value {
@@ -177,7 +176,7 @@
   color: var(--color-light);
   font-size: var(--font-size-small);
   line-height: 1.6;
-  opacity: 0.85;
+  color: var(--color-muted);
   max-width: 52ch;
 }
 

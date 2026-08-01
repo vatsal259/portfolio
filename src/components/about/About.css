@@ -48,7 +48,7 @@
 }
 
 .about__obsession {
-    border-left: 2px solid rgba(137, 201, 243, 0.42);
+    border-left: 2px solid var(--color-primary);
     padding: 0.65rem 0 0.65rem 0.85rem;
     transition: border-color 220ms ease, transform 220ms ease;
 }
@@ -102,8 +102,7 @@
     font-size: var(--font-size-caption);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-light);
-    opacity: 0.78;
+    color: var(--color-muted);
 }
 
 .about__fact-value {
@@ -134,10 +133,9 @@
 
 .about__work-subtitle {
     margin: 0;
-    color: var(--color-light);
+    color: var(--color-muted);
     font-size: var(--font-size-body);
     line-height: 1.6;
-    opacity: 0.85;
 }
 
 .about__work-table-wrap {
@@ -276,8 +274,7 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-size: var(--font-size-caption);
-        color: var(--color-light);
-        opacity: 0.7;
+        color: var(--color-muted);
         flex-shrink: 0;
     }
 

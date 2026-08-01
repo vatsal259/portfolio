@@ -19,7 +19,7 @@
 }
 
 .section-page__hero-content {
-  border-left: 2px solid rgba(137, 201, 243, 0.45);
+  border-left: 2px solid var(--color-primary);
   padding: 0.1rem 0 0.1rem 0.9rem;
 }
 

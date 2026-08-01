@@ -4,8 +4,35 @@ import IMG2 from '../../assets/CNN.jpg';
 import IMG3 from '../../assets/NLP.jpg';
 import IMG4 from '../../assets/Fittonesu.jpg';
 import IMG5 from '../../assets/Fembizz.jpg';
+import IMG_ARWEN from '../../assets/ArwenForge.png';
+import IMG_DOCUBE from '../../assets/DocubeDB.png';
 
 const PROJECTS = [
+  {
+    title: 'ArwenForge',
+    description:
+      'Java 21 library for profile-based RBAC on Spring AI MCP servers. Tag tools, resources, prompts, and delegates with profiles, then enforce the same least-privilege rule on discovery and fail-closed execution, so multi-agent systems can share one MCP endpoint without leaking capabilities across principals.',
+    image: IMG_ARWEN,
+    tags: ['Java', 'Spring AI', 'MCP', 'RBAC'],
+    year: '2026',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/vatsal259/ArwenForge' },
+      { label: 'Blog', href: 'https://www.vatsalverma.in/blog/introducing-arwenforge' },
+    ],
+  },
+  {
+    title: 'docube-db',
+    description:
+      'Embedded Java library for fuzzy lookup over prefix-heavy code lists invoices, serials, part numbers using a chunk trie to prune candidates and Levenshtein to rank survivors. Zero infra: file-backed, no server, with four search modes and a live browser demo.',
+    image: IMG_DOCUBE,
+    tags: ['Java', 'Trie', 'Fuzzy Search'],
+    year: '2026',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/vatsal259/docube-db' },
+      { label: 'Demo', href: 'https://vatsal259.github.io/docube-db/' },
+      { label: 'Blog', href: 'https://www.vatsalverma.in/blog/introducing-docube-db' },
+    ],
+  },
   {
     title: 'AI-Powered Animal Detection and Alert System',
     description:
