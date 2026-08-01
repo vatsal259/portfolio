@@ -46,6 +46,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.vatsalverma.in/blog/introducing-arwenforge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.vatsalverma.in/blog/introducing-docube-db</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
