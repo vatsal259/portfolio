@@ -12,7 +12,7 @@ import './Home.css';
 
 const FEATURED_PATHS = [
   {
-    title: 'Know me',
+    title: 'About Me',
     to: '/about',
     copy: 'The story, the obsessions, and the work history when you need it.',
   },
@@ -27,7 +27,7 @@ const FEATURED_PATHS = [
     copy: 'Technical notes on engineering, systems, and building in production.',
   },
   {
-    title: 'Say hi',
+    title: 'Say Hi',
     to: '/contact',
     copy: 'Collaborations, ideas, or just a thoughtful conversation.',
   },

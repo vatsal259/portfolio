@@ -27,10 +27,8 @@ const BlogPost = () => {
   const { post, loading, error } = useBlogPost(slug);
 
   const seoPost = post || getBlogPostBySlug(slug);
-  const baseTitle =
+  const heroTitle =
     post?.title || seoPost?.title || (loading ? 'Loading…' : 'Article');
-  const isPinned = post?.pinned || seoPost?.pinned;
-  const heroTitle = isPinned ? `📌 ${baseTitle}` : baseTitle;
   const heroSubtitle = formatArticleMeta(post);
 
   return (

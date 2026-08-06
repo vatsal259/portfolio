@@ -9,7 +9,7 @@ import { resumeUrl } from '../../blog/blogConfig';
 
 const FOOTER_LINKS = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
+  { label: 'About Me', to: '/about' },
   { label: 'Work & Life', to: '/work' },
   { label: 'Blog', to: '/blog' },
   { label: 'Resume', href: resumeUrl },
