@@ -36,6 +36,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.vatsalverma.in/blog/elasticsearch-complete-course</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.vatsalverma.in/blog/embabel-agent-framework</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -52,6 +57,11 @@
   </url>
   <url>
     <loc>https://www.vatsalverma.in/blog/introducing-docube-db</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vatsalverma.in/blog/java-internals-1000-qa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
