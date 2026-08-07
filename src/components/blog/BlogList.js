@@ -26,7 +26,6 @@ function ArticleCard({ post }) {
         aria-label={`Read article: ${post.title}`}
       >
         <div className="blog-card__head">
-          <span className="blog-card__label">Article</span>
           <Meta post={post} />
         </div>
         <h2 className="blog-card__title">{post.title}</h2>
@@ -49,7 +48,6 @@ function PinnedCard({ post }) {
         aria-label={`Pinned article: ${post.title}`}
       >
         <div className="blog-card__head">
-          <span className="blog-card__label">Pinned</span>
           <Meta post={post} />
         </div>
         <h2 className="blog-card__title">{post.title}</h2>
