@@ -1,21 +1,64 @@
 [
   {
     "slug": "interesting-finds",
-    "title": "Bookmarked",
+    "title": "My “I’ll Come Back to This” Collection",
     "pinned": true,
     "excerpt": "Papers, articles, and anything else worth saving, a living list of things I keep coming back to."
+  },
+  {
+    "slug": "spring-boot-ultra-zero-to-architect",
+    "title": "Spring Boot Ultra: Main Character Energy for Your Backend",
+    "date": "2026-08-08",
+    "pinned": true,
+    "excerpt": "The ultra Spring Boot textbook - Parts I–XXI with deep lessons, matrices, mermaid diagrams, labs, architect chapters (starters, Actuator, security, GraphQL, SSL, JdbcClient, CRaC), plus a 972-topic atlas with official docs links."
+  },
+  {
+    "slug": "elasticsearch-complete-course",
+    "title": "It's Lucene All the Way Down",
+    "date": "2026-08-06",
+    "excerpt": "A proper Elasticsearch course - teach Lucene guts, search, analytics, lifecycle, vectors, and ops with worked examples and official elastic.co docs links on every topic. Not a flashcard deck."
+  },
+  {
+    "slug": "java-internals-1000-qa",
+    "title": "Know the JVM, My Brother. Offers Follow.",
+    "date": "2026-08-06",
+    "excerpt": "A thousand Q&As on JVM guts - memory, GC, concurrency, proxies, classloading - and the basics that still break production. Built for revision, not fluff."
+  },
+  {
+    "slug": "introducing-arwenforge",
+    "title": "ArwenForge: Profile-Based RBAC for Multi-Agent MCP Servers",
+    "date": "2026-07-22",
+    "excerpt": "One MCP endpoint, many agents. ArwenForge tags tools, resources, prompts, and delegates with profiles — then enforces least-privilege discovery and fail-closed execution on the JVM."
+  },
+  {
+    "slug": "introducing-docube-db",
+    "title": "docube-db: Zero-Infra Code Lookup via Prefix Pruning",
+    "date": "2026-06-22",
+    "excerpt": "A small Java library that finds the right invoice, serial, or part code when the input is almost right using a chunk trie to prune and Levenshtein to rank. Open source on GitHub."
+  },
+  {
+    "slug": "dp-basic-to-advanced",
+    "title": "State It. Cache It. Ace It. A Dynamic Programming Guide.",
+    "date": "2026-06-12",
+    "excerpt": "A 7-day roadmap from recursion and memoization through knapsack, tree DP, bitmask DP, and interval DP - with curated LeetCode problems and contest-ready patterns."
+  },
+  {
+    "slug": "langchain-langgraph-blog",
+    "title": "Everything you need to know about LangChain and LangGraph",
+    "date": "2026-06-11",
+    "excerpt": "This post takes you from \"what is an LLM API?\" to production agents - step by step, no prior knowledge assumed."
   },
   {
     "slug": "solid-principles-ultimate-guide",
     "title": "One Change Breaks Everything? Five SOLID Principles Fix That",
     "date": "2026-06-07",
-    "excerpt": "A deep-dive into all five SOLID principles with real-world analogies, bad vs. good code comparisons, and complete code examples. Learn how to write clean, maintainable, and extensible software that your future self will thank you for."
+    "excerpt": "A deep-dive into all five SOLID principles with real-world analogies, bad vs. good code comparisons, and complete Java examples. Learn how to write clean, maintainable, and extensible software that your future self will thank you for."
   },
   {
     "slug": "design-patterns-ultimate-guide",
     "title": "Design Patterns Hiding in Your Code - All of Them, Explained",
     "date": "2026-06-06",
-    "excerpt": "A deep-dive into all 23 GoF design patterns - Creational, Structural, and Behavioral, explained with real-world analogies, UML intent, and complete code examples. Your one-stop reference for writing better, scalable software."
+    "excerpt": "A deep-dive into all 23 GoF design patterns - Creational, Structural, and Behavioral, explained with real-world analogies, UML intent, and complete Java code examples. Your one-stop reference for writing better, scalable software."
   },
   {
     "slug": "embabel-agent-framework",

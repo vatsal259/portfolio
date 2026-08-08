@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchPostIndex } from './blogApi';
-import { blogConfig } from './blogConfig';
 import { sortPostsByDate } from './formatDate';
 
 export function useBlogPosts() {
@@ -8,7 +7,7 @@ export function useBlogPosts() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const refresh = useCallback(async (isInitial = false) => {
+  const refresh = useCallback(async () => {
     try {
       const data = await fetchPostIndex();
       setPosts(sortPostsByDate(data));
@@ -16,26 +15,22 @@ export function useBlogPosts() {
     } catch (err) {
       setError(err.message || 'Could not load blog posts.');
     } finally {
-      if (isInitial) {
-        setLoading(false);
-      }
+      setLoading(false);
     }
   }, []);
 
   useEffect(() => {
     let cancelled = false;
 
-    const run = async (isInitial) => {
+    const run = async () => {
       if (cancelled) return;
-      await refresh(isInitial);
+      await refresh();
     };
 
-    run(true);
-    const intervalId = setInterval(() => run(false), blogConfig.pollIntervalMs);
+    run();
 
     return () => {
       cancelled = true;
-      clearInterval(intervalId);
     };
   }, [refresh]);
 

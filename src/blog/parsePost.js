@@ -47,6 +47,7 @@ export function parsePostSummary(rawMarkdown, slug) {
     date: data.date || '',
     pinned: parsePinned(data.pinned),
     excerpt: data.excerpt || '',
+    fact: data.fact || '',
     readingMinutes: estimateReadingMinutes(content),
   };
 }
@@ -61,6 +62,7 @@ export function parsePost(rawMarkdown, manifestMeta = {}) {
     date: data.date || manifestMeta.date || '',
     pinned: parsePinned(data.pinned) || Boolean(manifestMeta.pinned),
     excerpt: data.excerpt || manifestMeta.excerpt || '',
+    fact: data.fact || manifestMeta.fact || '',
     slug: manifestMeta.slug || data.slug || '',
     readingMinutes:
       manifestMeta.readingMinutes || estimateReadingMinutes(body),

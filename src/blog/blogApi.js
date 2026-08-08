@@ -2,22 +2,24 @@ import { blogConfig } from './blogConfig';
 import { parsePost, parsePostSummary } from './parsePost';
 import { BLOG_POSTS } from '../seo/blogPosts';
 
-/** @type {Map<string, { sha: string, summary: object }>} */
-const fileCache = new Map();
-
 async function fetchJson(url, options = {}) {
   const response = await fetch(url, options);
   if (!response.ok) {
     throw new Error(`Request failed (${response.status}): ${url}`);
   }
   const contentType = response.headers.get('content-type') || '';
-  if (!contentType.includes('json')) {
-    const preview = (await response.clone().text()).trimStart().slice(0, 40);
-    throw new Error(
-      `Expected JSON from ${url}, got ${contentType || 'unknown type'} (${preview}…)`
-    );
+  // raw.githubusercontent.com often serves JSON as text/plain
+  if (
+    contentType.includes('json') ||
+    contentType.includes('text/plain') ||
+    contentType.includes('javascript')
+  ) {
+    return response.json();
   }
-  return response.json();
+  const preview = (await response.clone().text()).trimStart().slice(0, 40);
+  throw new Error(
+    `Expected JSON from ${url}, got ${contentType || 'unknown type'} (${preview}…)`
+  );
 }
 
 async function fetchText(url) {
@@ -36,6 +38,37 @@ function githubHeaders() {
     headers.Authorization = `Bearer ${blogConfig.github.token}`;
   }
   return headers;
+}
+
+function normalizeSlugList(data) {
+  if (!Array.isArray(data) || data.length === 0) {
+    throw new Error('Blog index must be a non-empty JSON array');
+  }
+
+  return data
+    .map((entry) => {
+      if (typeof entry === 'string') return entry;
+      if (entry && typeof entry.slug === 'string') return entry.slug;
+      return null;
+    })
+    .filter(Boolean);
+}
+
+async function loadPostsFromSlugList(slugs) {
+  const posts = await Promise.all(
+    slugs.map(async (slug) => {
+      const raw = await fetchText(blogConfig.postUrl(slug));
+      return parsePostSummary(raw, slug);
+    })
+  );
+  return posts;
+}
+
+/** Live list from contents/blog/index.json via raw.githubusercontent (no API quota). */
+async function loadPostsFromRemoteIndex() {
+  const data = await fetchJson(blogConfig.indexUrl);
+  const slugs = normalizeSlugList(data);
+  return loadPostsFromSlugList(slugs);
 }
 
 async function listGithubMarkdownFiles() {
@@ -57,40 +90,20 @@ async function listGithubMarkdownFiles() {
 
 async function loadPostsFromGithubFolder() {
   const files = await listGithubMarkdownFiles();
-  const activeSlugs = new Set();
-  const posts = [];
-
-  for (const file of files) {
-    const slug = file.name.replace(/\.md$/i, '');
-    activeSlugs.add(slug);
-
-    const cached = fileCache.get(slug);
-    if (cached && cached.sha === file.sha) {
-      posts.push(cached.summary);
-      continue;
-    }
-
-    const raw = await fetchText(file.download_url);
-    const summary = parsePostSummary(raw, slug);
-    fileCache.set(slug, { sha: file.sha, summary });
-    posts.push(summary);
-  }
-
-  for (const slug of fileCache.keys()) {
-    if (!activeSlugs.has(slug)) {
-      fileCache.delete(slug);
-    }
-  }
-
+  const posts = await Promise.all(
+    files.map(async (file) => {
+      const slug = file.name.replace(/\.md$/i, '');
+      const raw = await fetchText(file.download_url || blogConfig.postUrl(slug));
+      return parsePostSummary(raw, slug);
+    })
+  );
   return posts;
 }
 
 async function loadPostsFromLocalIndex() {
-  const posts = await fetchJson(blogConfig.indexUrl);
-  if (!Array.isArray(posts)) {
-    throw new Error('Blog index must be a JSON array');
-  }
-  return posts;
+  const data = await fetchJson(blogConfig.indexUrl);
+  const slugs = normalizeSlugList(data);
+  return loadPostsFromSlugList(slugs);
 }
 
 async function loadPostsFromStaticManifest() {
@@ -106,6 +119,7 @@ async function loadPostsFromStaticManifest() {
           date: manifestPost.date || '',
           pinned: Boolean(manifestPost.pinned),
           excerpt: manifestPost.excerpt,
+          fact: manifestPost.fact || '',
           readingMinutes: 0,
         };
       }
@@ -120,15 +134,25 @@ export async function fetchPostIndex() {
     return loadPostsFromLocalIndex();
   }
 
+  // 1) contents/blog/index.json over raw CDN — no GitHub API rate limit
+  try {
+    return await loadPostsFromRemoteIndex();
+  } catch (indexError) {
+    console.warn('Remote blog index unavailable; trying GitHub Contents API.', indexError);
+  }
+
+  // 2) GitHub Contents API (rate-limited when unauthenticated)
   try {
     return await loadPostsFromGithubFolder();
-  } catch (error) {
+  } catch (apiError) {
     console.warn(
-      'GitHub Contents API unavailable; falling back to static blog manifest.',
-      error
+      'GitHub Contents API unavailable; using static portfolio manifest.',
+      apiError
     );
-    return loadPostsFromStaticManifest();
   }
+
+  // 3) Last resort baked into the portfolio build
+  return loadPostsFromStaticManifest();
 }
 
 export async function fetchPost(slug, manifestMeta = {}) {

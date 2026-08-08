@@ -1,5 +1,7 @@
-// Default: load posts from GitHub (vatsal259/contents). Set REACT_APP_BLOG_SOURCE=local
-// only if you mirror posts under portfolio/public/blog/ (index.json + .md files).
+// Default: load posts from GitHub (vatsal259/contents).
+// On each page load the site reads contents/blog/index.json (raw) then each .md.
+// When you add a post in contents, run: node scripts/generate-blog-index.mjs
+// Set REACT_APP_BLOG_SOURCE=local only if you mirror posts under portfolio/public/blog/.
 const folder = process.env.REACT_APP_BLOG_FOLDER || 'blog';
 const branch = process.env.REACT_APP_BLOG_BRANCH || 'main';
 const githubOwner = process.env.REACT_APP_BLOG_REPO_OWNER || 'vatsal259';
@@ -18,7 +20,6 @@ export const resumeUrl = `${resumeCdnBase}/${resumeFile}`;
 export const blogConfig = {
   folder,
   branch,
-  pollIntervalMs: Number(process.env.REACT_APP_BLOG_POLL_MS) || 30000,
   isLocal,
   github: {
     owner: githubOwner,

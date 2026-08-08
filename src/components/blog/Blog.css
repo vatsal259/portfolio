@@ -84,16 +84,149 @@
   grid-template-columns: 1fr;
 }
 
-.blog-card--pinned .blog-card__link {
-  padding: 1.5rem 1.5rem 1.45rem;
-  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
-  border-top: 2px solid var(--color-primary);
-  min-height: 12rem;
+.blog-card--pinned .blog-card__shell {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg-variant);
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  transition: border-color 220ms ease;
 }
 
-.blog-card--pinned .blog-card__title {
-  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
-  letter-spacing: -0.02em;
+.blog-card--pinned:hover .blog-card__shell {
+  border-color: var(--color-primary);
+}
+
+.blog-card--pinned .blog-card__link {
+  position: relative;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.blog-card--pinned .blog-card__link:hover {
+  border-color: transparent;
+}
+
+.blog-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+  background: color-mix(in srgb, var(--color-bg-variant) 94%, var(--color-primary));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease 420ms;
+}
+
+.blog-card--pinned.is-fact-open .blog-card__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.blog-card--pinned:not(.is-fact-open) .blog-card__overlay {
+  transition-delay: 0ms;
+}
+
+.blog-card__overlay-inner {
+  max-width: 34rem;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition:
+    opacity 260ms ease 500ms,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1) 500ms;
+}
+
+.blog-card--pinned.is-fact-open .blog-card__overlay-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-card--pinned:not(.is-fact-open) .blog-card__overlay-inner {
+  transition-delay: 0ms;
+}
+
+.blog-card__easter-label {
+  margin: 0 0 0.45rem;
+  font-size: var(--font-size-meta);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.blog-card__easter-label--fact {
+  margin-top: 1.15rem;
+  color: var(--color-muted);
+}
+
+.blog-card__congrats {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+
+.blog-card__fact {
+  margin: 0;
+  color: var(--color-light);
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+}
+
+.blog-card__bookmark {
+  position: absolute;
+  top: 0;
+  right: 1.15rem;
+  z-index: 4;
+  width: 0.95rem;
+  height: calc(
+    1.5rem + (100% - 1.5rem) * var(--ribbon-progress, 0)
+  );
+  padding: 0;
+  border: 0;
+  background: var(--color-primary);
+  /* Inverted-V / swallowtail tip — notch depth is fixed, so it never stretches */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    50% calc(100% - 0.5rem),
+    0 100%
+  );
+  cursor: grab;
+  touch-action: none;
+  transition:
+    height 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 180ms ease;
+}
+
+.blog-card--pinned:not(.is-pulled) .blog-card__bookmark {
+  transition-delay: 200ms;
+}
+
+.blog-card__bookmark:hover {
+  filter: brightness(1.08);
+}
+
+.blog-card__bookmark:active {
+  cursor: grabbing;
+}
+
+.blog-card__bookmark:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.blog-card--pinned.is-dragging .blog-card__bookmark,
+.blog-card--pinned.is-dragging .blog-card__overlay,
+.blog-card--pinned.is-dragging .blog-card__overlay-inner {
+  transition: none;
 }
 
 .blog-pinned__grid--solo .blog-card--pinned .blog-card__link {
@@ -106,7 +239,7 @@
   column-gap: 2rem;
   row-gap: 0.7rem;
   min-height: 10.5rem;
-  padding: 1.6rem 1.7rem 1.55rem;
+  padding: 1.35rem 1.5rem 1.35rem;
 }
 
 .blog-pinned__grid--solo .blog-card--pinned .blog-card__head {
@@ -117,7 +250,7 @@
   grid-area: title;
   align-self: start;
   max-width: 16ch;
-  font-size: clamp(1.4rem, 2.8vw, 1.75rem);
+  font-size: clamp(1.35rem, 2.6vw, 1.65rem);
   line-height: 1.2;
 }
 
@@ -434,10 +567,6 @@
     padding: 1.1rem 1.1rem 1.15rem;
   }
 
-  .blog-card--pinned .blog-card__link {
-    padding: 1.25rem 1.2rem 1.2rem;
-  }
-
   .blog-prose table {
     display: block;
     overflow-x: auto;
@@ -453,9 +582,12 @@
   .blog-card__link,
   .blog-card__title,
   .blog-card__cta,
+  .blog-card__bookmark,
+  .blog-card__overlay,
+  .blog-card__overlay-inner,
+  .blog-card--pinned .blog-card__shell,
   .blog-article__back,
   .blog-article__footer-link {
     transition: none;
   }
-
 }
