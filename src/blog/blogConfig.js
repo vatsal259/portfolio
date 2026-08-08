@@ -1,6 +1,6 @@
 // Default: load posts from GitHub (vatsal259/contents).
 // On each page load the site reads contents/blog/index.json (raw) then each .md.
-// When you add a post in contents, run: node scripts/generate-blog-index.mjs
+// index.json is auto-refreshed by a GitHub Action when you push new posts to contents.
 // Set REACT_APP_BLOG_SOURCE=local only if you mirror posts under portfolio/public/blog/.
 const folder = process.env.REACT_APP_BLOG_FOLDER || 'blog';
 const branch = process.env.REACT_APP_BLOG_BRANCH || 'main';
