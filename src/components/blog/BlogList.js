@@ -7,7 +7,6 @@ import { useBlogPosts } from '../../blog/useBlogPosts';
 import { formatDate } from '../../blog/formatDate';
 import './Blog.css';
 import { EASTER_EGGS, foundSecretsKeyCount, markEggFound } from '../../easterEggs/easterEggs';
-import { pickRandomFact } from '../../easterEggs/easterFacts';
 
 /** Drag distance (px) needed to stretch the ribbon fully to the bottom */
 const RIBBON_DRAG = 120;
@@ -49,7 +48,6 @@ function PinnedCard({ post }) {
   const factId = useId();
   const [open, setOpen] = useState(false);
   const [pull, setPull] = useState(0);
-  const [fact, setFact] = useState(() => pickRandomFact());
   const [secretsKeys, setSecretsKeys] = useState(() => foundSecretsKeyCount());
   const dragRef = useRef({ active: false, startY: 0, moved: false });
 
@@ -63,7 +61,6 @@ function PinnedCard({ post }) {
   const factVisible = open || (dragging && ribbonFull);
 
   const openEgg = () => {
-    setFact(pickRandomFact());
     setOpen(true);
     markEggFound(EASTER_EGGS.bookmark);
     setSecretsKeys(foundSecretsKeyCount());
@@ -140,6 +137,7 @@ function PinnedCard({ post }) {
         ribbonProgress > 0.02 ? 'is-pulled' : '',
         ribbonFull ? 'is-ribbon-full' : '',
         factVisible ? 'is-fact-open' : '',
+        open ? 'is-egg-open' : '',
         dragging ? 'is-dragging' : '',
       ]
         .filter(Boolean)
@@ -175,27 +173,45 @@ function PinnedCard({ post }) {
           <div className="blog-card__overlay-inner">
             <p className="blog-card__easter-label">What you found</p>
             <p className="blog-card__congrats">
-              {secretsKeys >= 2 ? (
-                <>
-                  You found 2 of 2. Head to{' '}
-                  <Link to="/secrets" className="blog-card__easter-link">
-                    /secrets
-                  </Link>
-                  .
-                </>
-              ) : (
-                `You found ${Math.max(secretsKeys, 1)} of 2.`
-              )}
-            </p>
-            <p className="blog-card__easter-label blog-card__easter-label--fact">
-              Random fact
-            </p>
-            <p className="blog-card__fact">{fact}</p>
-            <p className="blog-card__easter-clue">
               {secretsKeys >= 2
-                ? 'Both found. The door is open.'
-                : 'The other one is where the road meets the frame.'}
+                ? 'You found 2 of 2.'
+                : `You found ${Math.max(secretsKeys, 1)} of 2.`}
             </p>
+            {secretsKeys >= 2 ? (
+              <>
+                <p className="blog-card__easter-clue">
+                  Both found. Open secrets, or continue with the article?
+                </p>
+                <div className="blog-card__easter-actions">
+                  <Link to="/secrets" className="blog-card__easter-action blog-card__easter-action--primary">
+                    Open secrets
+                    <span aria-hidden>→</span>
+                  </Link>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="blog-card__easter-action"
+                  >
+                    Continue reading
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="blog-card__easter-clue">
+                  About holds the quieter key three knocks on the Hunter’s tank.
+                </p>
+                <div className="blog-card__easter-actions">
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="blog-card__easter-action"
+                  >
+                    Continue reading
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
 

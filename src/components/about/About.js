@@ -170,17 +170,13 @@ function BikeObsessionCard({ item }) {
               <>
                 Both found. The door is at{' '}
                 <Link to="/secrets" className="about__egg-link">
-                  /secrets
+                  secrets
                 </Link>
                 .
               </>
             ) : (
               <>
-                One more to find check the blog. Then try{' '}
-                <Link to="/secrets" className="about__egg-link">
-                  /secrets
-                </Link>
-                .
+                Blog tucks the other key behind a pinned ribbon.
               </>
             )}
           </p>
