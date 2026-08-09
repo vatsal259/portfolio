@@ -33,7 +33,7 @@ function ArticleCard({ post }) {
         <div className="blog-card__head">
           <Meta post={post} />
         </div>
-        <h2 className="blog-card__title">{post.title}</h2>
+        <h3 className="blog-card__title">{post.title}</h3>
         {post.excerpt && <p className="blog-card__excerpt">{post.excerpt}</p>}
         <span className="blog-card__cta">
           Read article
@@ -171,7 +171,9 @@ function PinnedCard({ post }) {
           aria-hidden={!factVisible}
         >
           <div className="blog-card__overlay-inner">
-            <p className="blog-card__easter-label">What you found</p>
+            <div className="blog-card__head">
+              <p className="blog-card__easter-label">What you found</p>
+            </div>
             <p className="blog-card__congrats">
               {secretsKeys >= 2
                 ? 'You found 2 of 2.'
@@ -224,7 +226,7 @@ function PinnedCard({ post }) {
           <div className="blog-card__head">
             <Meta post={post} />
           </div>
-          <h2 className="blog-card__title">{post.title}</h2>
+          <h3 className="blog-card__title">{post.title}</h3>
           {post.excerpt && (
             <p className="blog-card__excerpt">{post.excerpt}</p>
           )}
