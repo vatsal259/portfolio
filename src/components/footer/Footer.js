@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { BsInstagram, BsLinkedin } from 'react-icons/bs';
 import { FaBehance, FaGithub, FaYoutube } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { resumeUrl } from '../../blog/blogConfig';
+import { EASTER_EGGS, markEggFound } from '../../easterEggs/easterEggs';
+import { pickRandomFact } from '../../easterEggs/easterFacts';
 
 const FOOTER_LINKS = [
   { label: 'Home', to: '/' },
@@ -56,6 +58,27 @@ const FOOTER_SOCIALS = [
 ];
 
 const Footer = () => {
+  const [open, setOpen] = useState(false);
+  const [fact, setFact] = useState(() => pickRandomFact());
+
+  const toggleEgg = () => {
+    setOpen((wasOpen) => {
+      if (!wasOpen) {
+        setFact(pickRandomFact());
+        markEggFound(EASTER_EGGS.caffeine);
+      }
+      return !wasOpen;
+    });
+  };
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
   return (
     <footer>
       <div className="footer__brand">
@@ -106,9 +129,40 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="footer__copyright">
+      <div
+        className={`footer__easter${open ? ' is-open' : ''}`}
+        role="region"
+        aria-label="Footer surprise"
+        aria-hidden={!open}
+      >
+        <div className="footer__easter-inner">
+          <p className="footer__easter-label">What you found</p>
+          <p className="footer__easter-congrats">
+            Congratulations, you found the easter egg.
+          </p>
+          <p className="footer__easter-label footer__easter-label--fact">
+            Random fact
+          </p>
+          <p className="footer__easter-fact">{fact}</p>
+          <button
+            type="button"
+            className="footer__easter-refresh"
+            onClick={() => setFact(pickRandomFact())}
+          >
+            Another fact
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="footer__copyright footer__easter-trigger"
+        onClick={toggleEgg}
+        aria-expanded={open}
+        aria-label="Assembled with love, caffeine, and questionable CSS by Vatsal"
+      >
         Assembled with ❤️, caffeine, and questionable CSS by Vatsal
-      </p>
+      </button>
     </footer>
   );
 };

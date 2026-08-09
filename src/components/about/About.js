@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './About.css';
 import { resumeUrl } from '../../blog/blogConfig';
+import { EASTER_EGGS, canAccessSecrets, foundSecretsKeyCount, markEggFound } from '../../easterEggs/easterEggs';
+import { useTripleTap } from '../../easterEggs/useTripleTap';
 
 const OBSESSIONS = [
   {
@@ -14,6 +17,7 @@ const OBSESSIONS = [
     title: 'Royal Enfield Hunter',
     description:
       'Open roads, blind curves, and the kind of silence you only find before sunrise on an empty highway. Riding is how I reset, every paycheck one tank closer to the next horizon.',
+    easterEgg: true,
   },
   {
     label: 'The Camera',
@@ -21,6 +25,14 @@ const OBSESSIONS = [
     description:
       'Birds mid-flight, a perfect patch of light, a single leafless tree that feels too real to ignore. Mostly slow and patient, occasionally lucky.',
   },
+];
+
+const RIDE_STATS = [
+  { label: 'Machine', value: 'Royal Enfield Hunter 350' },
+  { label: 'Best hour', value: 'The one before sunrise' },
+  { label: 'Favorite stretch', value: 'Empty highway, no fixed destination' },
+  { label: 'Ritual', value: 'Keys → helmet → ride until the head clears' },
+  { label: 'Fuel philosophy', value: 'Half a tank of petrol, a full tank of thoughts' },
 ];
 
 const QUICK_FACTS = [
@@ -46,6 +58,151 @@ const WORK_HISTORY = [
     location: 'Varanasi, India',
   },
 ];
+
+function PlainObsessionCard({ item }) {
+  return (
+    <article className="about__obsession">
+      <span className="about__obsession-label">{item.label}</span>
+      <h3 className="about__obsession-title">{item.title}</h3>
+      <p className="about__obsession-desc">{item.description}</p>
+    </article>
+  );
+}
+
+function BikeObsessionCard({ item }) {
+  const overlayId = 'bike-easter-egg';
+  const [open, setOpen] = useState(false);
+  const [secretsReady, setSecretsReady] = useState(() => canAccessSecrets());
+  const [secretsKeys, setSecretsKeys] = useState(() => foundSecretsKeyCount());
+
+  const toggleEgg = useTripleTap(() => {
+    setOpen((wasOpen) => {
+      if (!wasOpen) {
+        markEggFound(EASTER_EGGS.bike);
+        setSecretsKeys(foundSecretsKeyCount());
+        setSecretsReady(canAccessSecrets());
+      }
+      return !wasOpen;
+    });
+  });
+
+  useEffect(() => {
+    const sync = () => {
+      setSecretsReady(canAccessSecrets());
+      setSecretsKeys(foundSecretsKeyCount());
+    };
+    sync();
+    window.addEventListener('easter-egg-found', sync);
+    return () => window.removeEventListener('easter-egg-found', sync);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
+  const onTitleClick = (event) => {
+    event.preventDefault();
+    toggleEgg();
+  };
+
+  const onTitleKeyDown = (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggleEgg();
+  };
+
+  return (
+    <article
+      className={[
+        'about__obsession',
+        'about__obsession--bike',
+        open ? 'is-egg-open' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <span className="about__obsession-label">{item.label}</span>
+      <h3 className="about__obsession-title">
+        <button
+          type="button"
+          className="about__obsession-title-trigger"
+          onClick={onTitleClick}
+          onKeyDown={onTitleKeyDown}
+          aria-expanded={open}
+          aria-controls={overlayId}
+          aria-label={item.title}
+        >
+          {item.title}
+        </button>
+      </h3>
+      <p className="about__obsession-desc">{item.description}</p>
+
+      <div
+        id={overlayId}
+        className={`about__obsession-reveal${open ? ' is-open' : ''}`}
+        role="region"
+        aria-label="Ride log surprise"
+        aria-hidden={!open}
+      >
+        <div className="about__obsession-reveal-inner">
+          <p className="about__egg-label">What you found</p>
+          <p className="about__egg-congrats">
+            {secretsKeys >= 2
+              ? 'You found 2 of 2.'
+              : `You found ${Math.max(secretsKeys, 1)} of 2.`}
+          </p>
+          <p className="about__egg-label about__egg-label--stats">Ride log</p>
+          <dl className="about__ride-stats">
+            {RIDE_STATS.map((stat) => (
+              <div className="about__ride-stat" key={stat.label}>
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="about__egg-clue">
+            {secretsReady ? (
+              <>
+                Both found. The door is at{' '}
+                <Link to="/secrets" className="about__egg-link">
+                  /secrets
+                </Link>
+                .
+              </>
+            ) : (
+              <>
+                One more to find check the blog. Then try{' '}
+                <Link to="/secrets" className="about__egg-link">
+                  /secrets
+                </Link>
+                .
+              </>
+            )}
+          </p>
+          <button
+            type="button"
+            className="about__egg-close"
+            onClick={() => setOpen(false)}
+          >
+            Tuck it away
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ObsessionCard({ item }) {
+  if (item.easterEgg) {
+    return <BikeObsessionCard item={item} />;
+  }
+  return <PlainObsessionCard item={item} />;
+}
 
 const About = () => {
   return (
@@ -76,11 +233,7 @@ const About = () => {
 
           <div className="about__obsessions">
             {OBSESSIONS.map((item) => (
-              <article className="about__obsession" key={item.label}>
-                <span className="about__obsession-label">{item.label}</span>
-                <h3 className="about__obsession-title">{item.title}</h3>
-                <p className="about__obsession-desc">{item.description}</p>
-              </article>
+              <ObsessionCard item={item} key={item.label} />
             ))}
           </div>
         </div>

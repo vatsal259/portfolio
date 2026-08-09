@@ -84,6 +84,11 @@ export const PAGE_SEO = {
       'Get in touch for collaborations, engineering conversations, or thoughtful ideas around software and product.',
     body: '<h1>Contact</h1><p>Reach out via email or social channels.</p>',
   },
+  '/secrets': {
+    title: 'Secrets | Vatsal Verma',
+    description: 'A quieter page about who Vatsal Verma is beyond the portfolio.',
+    body: '<h1>Secrets</h1><p>Who I am beyond the résumé the person behind the work.</p>',
+  },
 };
 
 export function buildArticleSeo(slug, frontmatter = {}) {

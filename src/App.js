@@ -7,6 +7,7 @@ import WorkPage from './pages/WorkPage';
 import ContactPage from './pages/ContactPage';
 import BlogList from './components/blog/BlogList';
 import BlogPost from './components/blog/BlogPost';
+import SecretsPage from './pages/SecretsPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/secrets" element={<SecretsPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>

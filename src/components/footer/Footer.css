@@ -100,6 +100,111 @@ footer a {
   color: var(--color-muted-subtle);
 }
 
+.footer__easter-trigger {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-muted-subtle);
+  font-family: inherit;
+  font-size: var(--font-size-caption);
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer__easter-trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer__easter {
+  display: grid;
+  grid-template-rows: 0fr;
+  max-width: 28rem;
+  margin: 0 auto 0.85rem;
+  opacity: 0;
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms ease,
+    margin-bottom 280ms ease;
+}
+
+.footer__easter.is-open {
+  grid-template-rows: 1fr;
+  margin-bottom: 1rem;
+  opacity: 1;
+}
+
+.footer__easter-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-variant);
+  text-align: left;
+}
+
+.footer__easter-label {
+  margin: 0;
+  font-size: var(--font-size-meta);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.footer__easter-label--fact {
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+}
+
+.footer__easter-congrats {
+  margin: 0;
+  color: var(--color-white);
+  font-size: var(--font-size-card);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+
+.footer__easter-fact {
+  margin: 0;
+  color: var(--color-light);
+  font-size: var(--font-size-small);
+  line-height: 1.65;
+}
+
+.footer__easter-refresh {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-light);
+  font-size: var(--font-size-caption);
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.footer__easter-refresh:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 @media screen and (max-width: 600px) {
   footer {
     padding: 1.8rem 1.1rem 1.35rem;
