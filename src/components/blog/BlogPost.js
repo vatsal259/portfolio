@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import SectionPage from '../../pages/SectionPage';
 import Seo from '../seo/Seo';
@@ -9,6 +9,12 @@ import { getBlogPostBySlug } from '../../seo/blogPosts';
 import { useBlogPost } from '../../blog/useBlogPost';
 import { formatDate } from '../../blog/formatDate';
 import './Blog.css';
+
+/** Allow inlined diagrams (data:image/…) while keeping default URL safety. */
+function blogUrlTransform(url) {
+  if (url.startsWith('data:image/')) return url;
+  return defaultUrlTransform(url);
+}
 
 function formatArticleMeta(post) {
   if (!post) return undefined;
@@ -64,7 +70,10 @@ const BlogPost = () => {
                 <p className="blog-article__deck">{post.excerpt}</p>
               )}
               <div className="blog-prose">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  urlTransform={blogUrlTransform}
+                >
                   {post.content}
                 </ReactMarkdown>
               </div>
