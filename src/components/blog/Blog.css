@@ -572,6 +572,9 @@
 .blog-prose img {
   border-radius: 0.35rem;
   margin: 1rem 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .blog-prose table {
