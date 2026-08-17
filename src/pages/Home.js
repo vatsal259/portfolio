@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Seo from '../components/seo/Seo';
-import {
-  PAGE_SEO,
-  PERSON_SCHEMA,
-  WEBSITE_SCHEMA,
-} from '../seo/siteConfig';
+import { PAGE_SEO, buildHomeJsonLd } from '../seo/siteConfig';
 import './Home.css';
 
 const FEATURED_PATHS = [
@@ -24,7 +20,7 @@ const FEATURED_PATHS = [
   {
     title: 'Read the blog',
     to: '/blog',
-    copy: 'Technical notes on engineering, systems, and building in production.',
+    copy: 'Notes on Java, Spring Boot, Elasticsearch, JVM internals, and building in production.',
   },
   {
     title: 'Say Hi',
@@ -40,15 +36,20 @@ const Home = () => {
         fullTitle={PAGE_SEO.home.fullTitle}
         description={PAGE_SEO.home.description}
         path={PAGE_SEO.home.path}
-        jsonLd={[PERSON_SCHEMA, WEBSITE_SCHEMA]}
+        jsonLd={buildHomeJsonLd()}
       />
-      <div className="page-shell__main">
+      <main className="page-shell__main" id="main-content">
         <Header />
 
         <section className="home__section">
           <div className="container home__intro">
             <p className="home__eyebrow">All in one</p>
             <h2>A simple home for what I build and what I love.</h2>
+            <p className="home__lede">
+              Software engineer at Amdocs. I write about Java, Spring Boot,
+              Elasticsearch, and JVM systems, and I keep a record of rides and
+              photographs.
+            </p>
           </div>
 
           <div className="container home__links">
@@ -60,7 +61,7 @@ const Home = () => {
             ))}
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer />
     </div>

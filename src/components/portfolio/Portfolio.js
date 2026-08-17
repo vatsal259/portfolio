@@ -66,7 +66,7 @@ const Portfolio = () => {
           {STORIES.map((story) => (
             <li className="portfolio__item" key={story.title}>
               <div className="portfolio__media">
-                <img src={story.image} alt={story.alt} />
+                <img src={story.image} alt={story.alt} loading="lazy" decoding="async" />
               </div>
               <div className="portfolio__copy">
                 <p className="portfolio__label">{story.label}</p>

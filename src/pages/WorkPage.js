@@ -4,7 +4,7 @@ import Portfolio from '../components/portfolio/Portfolio';
 import Testimonials from '../components/testimonials/Testimonials';
 import SectionPage from './SectionPage';
 import Seo from '../components/seo/Seo';
-import { PAGE_SEO } from '../seo/siteConfig';
+import { PAGE_SEO, buildWorkJsonLd } from '../seo/siteConfig';
 import './WorkPage.css';
 
 const WorkPage = () => {
@@ -14,6 +14,7 @@ const WorkPage = () => {
       title={PAGE_SEO.work.title}
       description={PAGE_SEO.work.description}
       path={PAGE_SEO.work.path}
+      jsonLd={buildWorkJsonLd()}
     />
     <SectionPage
       eyebrow="Work & Life"

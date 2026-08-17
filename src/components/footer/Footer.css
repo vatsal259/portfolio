@@ -246,4 +246,8 @@ footer a {
   .footer__socials {
     margin-bottom: 0.45rem;
   }
+
+  .footer__social-strip {
+    flex-wrap: wrap;
+  }
 }

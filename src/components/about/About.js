@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
 import { resumeUrl } from '../../blog/blogConfig';
+import { LEETCODE_PROFILE_URL } from '../../seo/siteConfig';
 import { EASTER_EGGS, canAccessSecrets, foundSecretsKeyCount, markEggFound } from '../../easterEggs/easterEggs';
 import { useTripleTap } from '../../easterEggs/useTripleTap';
 
@@ -245,7 +246,7 @@ const About = () => {
 
         <div className="about__work">
           <div className="about__work-header">
-            <h3 className="about__work-title">Where I&apos;ve worked</h3>
+            <h2 className="about__work-title">Where I&apos;ve worked</h2>
             <p className="about__work-subtitle">
               A short and honest log of the places that have shaped how I build.
             </p>
@@ -287,12 +288,36 @@ const About = () => {
               href={resumeUrl}
               className="about__work-resume-link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               see my resume
             </a>
             .
           </p>
+        </div>
+
+        <div className="about__leetcode">
+          <h2 className="about__work-title">LeetCode</h2>
+          <div className="about__story">
+            <p>
+              When the day has been all services and pipelines, I like a smaller
+              problem. Something that fits in my head. No architecture to defend,
+              no deployment waiting on the other side. Just a question, a little
+              time, and the quiet of figuring it out or not.
+            </p>
+            <p>
+              That is what I keep on LeetCode. I pick one, sit with it, and leave
+              when it clicks or when it doesn&apos;t. If you want to look, I am{' '}
+              <a
+                href={LEETCODE_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                vatsalverma999
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </section>

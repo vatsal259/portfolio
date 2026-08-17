@@ -23,11 +23,19 @@
 }
 
 .home__intro h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
   font-size: var(--home-type-title);
   font-weight: 500;
   line-height: var(--line-height-heading);
   color: var(--color-white);
+}
+
+.home__lede {
+  margin: 0 auto;
+  max-width: 48ch;
+  color: var(--color-light);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-copy);
 }
 
 .home__links {

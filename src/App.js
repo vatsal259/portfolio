@@ -8,6 +8,7 @@ import ContactPage from './pages/ContactPage';
 import BlogList from './components/blog/BlogList';
 import BlogPost from './components/blog/BlogPost';
 import SecretsPage from './pages/SecretsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -22,6 +23,9 @@ const ScrollToTop = () => {
 const App = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <ScrollToTop />
       <Nav />
       <Routes>
@@ -32,7 +36,7 @@ const App = () => {
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/secrets" element={<SecretsPage />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

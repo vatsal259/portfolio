@@ -5,7 +5,9 @@ import './Footer.css';
 import { BsInstagram, BsLinkedin } from 'react-icons/bs';
 import { FaBehance, FaGithub, FaYoutube } from 'react-icons/fa';
 import { RiTwitterXFill } from 'react-icons/ri';
+import { SiLeetcode } from 'react-icons/si';
 import { resumeUrl } from '../../blog/blogConfig';
+import { LEETCODE_PROFILE_URL } from '../../seo/siteConfig';
 import { EASTER_EGGS, markEggFound } from '../../easterEggs/easterEggs';
 import { pickRandomFact } from '../../easterEggs/easterFacts';
 
@@ -14,6 +16,7 @@ const FOOTER_LINKS = [
   { label: 'About Me', to: '/about' },
   { label: 'Work & Life', to: '/work' },
   { label: 'Blog', to: '/blog' },
+  { label: 'RSS', href: '/rss.xml' },
   { label: 'Resume', href: resumeUrl },
   { label: 'Say Hi', to: '/contact' },
 ];
@@ -42,6 +45,12 @@ const FOOTER_SOCIALS = [
     href: 'https://github.com/vatsal259',
     icon: <FaGithub />,
     neutral: true,
+  },
+  {
+    label: 'LeetCode',
+    href: LEETCODE_PROFILE_URL,
+    icon: <SiLeetcode />,
+    color: '#FFA116',
   },
   {
     label: 'YouTube',
@@ -89,22 +98,28 @@ const Footer = () => {
       </div>
 
       <div className="footer__links">
-        {FOOTER_LINKS.map((item) =>
-          item.href ? (
+        {FOOTER_LINKS.map((item) => {
+          if (item.to) {
+            return (
+              <Link to={item.to} key={item.label}>
+                {item.label}
+              </Link>
+            );
+          }
+
+          const isExternal = /^https?:/i.test(item.href);
+          return (
             <a
               key={item.label}
               href={item.href}
-              target="_blank"
-              rel="noreferrer"
+              {...(isExternal
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
             >
               {item.label}
             </a>
-          ) : (
-            <Link to={item.to} key={item.label}>
-              {item.label}
-            </Link>
-          )
-        )}
+          );
+        })}
       </div>
 
       <p className="footer__message">
@@ -118,7 +133,7 @@ const Footer = () => {
               key={item.label}
               href={item.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer me"
               aria-label={item.label}
               className={`footer__social-pill${item.neutral ? ' footer__social-pill--neutral' : ''}`}
               style={item.color ? { color: item.color } : undefined}

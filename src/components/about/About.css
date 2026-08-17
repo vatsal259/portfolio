@@ -354,6 +354,25 @@
     color: var(--color-white);
 }
 
+.about__leetcode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.about__leetcode .about__story a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    transition: color 180ms ease;
+}
+
+.about__leetcode .about__story a:hover {
+    color: var(--color-white);
+}
+
 /*Media Queries (Medium Devices)*/
 @media screen and (max-width: 1024px) {
     .about__container {

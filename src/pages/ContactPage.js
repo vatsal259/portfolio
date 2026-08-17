@@ -2,7 +2,7 @@ import React from 'react';
 import Contact from '../components/contact/Contact';
 import SectionPage from './SectionPage';
 import Seo from '../components/seo/Seo';
-import { PAGE_SEO } from '../seo/siteConfig';
+import { PAGE_SEO, buildContactJsonLd } from '../seo/siteConfig';
 
 const ContactPage = () => {
   return (
@@ -11,6 +11,7 @@ const ContactPage = () => {
       title={PAGE_SEO.contact.title}
       description={PAGE_SEO.contact.description}
       path={PAGE_SEO.contact.path}
+      jsonLd={buildContactJsonLd()}
     />
     <SectionPage
       eyebrow="Say Hi"

@@ -313,15 +313,13 @@ const BlogList = () => {
 
                 {articles.length > 0 && (
                   <section className="blog-articles" aria-label="All articles">
-                    {pinned.length > 0 && (
-                      <div className="blog-section-head">
-                        <h2 className="blog-section-head__title">Articles</h2>
-                        <p className="blog-section-head__meta">
-                          {articles.length}{' '}
-                          {articles.length === 1 ? 'post' : 'posts'}
-                        </p>
-                      </div>
-                    )}
+                    <div className="blog-section-head">
+                      <h2 className="blog-section-head__title">Articles</h2>
+                      <p className="blog-section-head__meta">
+                        {articles.length}{' '}
+                        {articles.length === 1 ? 'post' : 'posts'}
+                      </p>
+                    </div>
 
                     <ul className="blog-cards__grid">
                       {articles.map((post, index) => (

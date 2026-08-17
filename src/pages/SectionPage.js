@@ -10,7 +10,7 @@ const SectionPage = ({
 }) => {
   return (
     <div className="section-page">
-      <main className="section-page__main">
+      <main className="section-page__main" id="main-content">
         <section className="section-page__hero">
           <div className="container section-page__hero-wrap">
             <div className="section-page__hero-content">

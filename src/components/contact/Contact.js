@@ -1,7 +1,7 @@
 import React from 'react';
 import './Contact.css';
+import { EMAIL, LEETCODE_PROFILE_URL } from '../../seo/siteConfig';
 
-const EMAIL = 'vatsalverma999@gmail.com';
 const INSTAGRAM_URL = 'https://instagram.com/vatsalastav';
 
 const OPEN_TO = [
@@ -26,6 +26,10 @@ const SOCIAL_LINKS = [
   {
     label: 'GitHub',
     href: 'https://github.com/vatsal259',
+  },
+  {
+    label: 'LeetCode',
+    href: LEETCODE_PROFILE_URL,
   },
   {
     label: 'YouTube',
@@ -55,8 +59,7 @@ const Contact = () => {
             <a
               href={`mailto:${EMAIL}`}
               className="contact-page__channel"
-              target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <div className="contact-page__channel-meta">
                 <span>Direct</span>
@@ -79,7 +82,7 @@ const Contact = () => {
               href={INSTAGRAM_URL}
               className="contact-page__channel"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer me"
             >
               <div className="contact-page__channel-meta">
                 <span>Photos</span>
@@ -112,7 +115,7 @@ const Contact = () => {
               <a
                 href={link.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer me"
                 key={link.label}
                 className="contact-page__link"
               >

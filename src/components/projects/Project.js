@@ -1,4 +1,6 @@
 import './Project.css';
+import { Link } from 'react-router-dom';
+import { SITE_URL } from '../../seo/siteConfig';
 import IMG1 from '../../assets/Treatise.jpg';
 import IMG2 from '../../assets/CNN.jpg';
 import IMG3 from '../../assets/NLP.jpg';
@@ -86,6 +88,29 @@ const PROJECTS = [
   },
 ];
 
+function ProjectLink({ href, label }) {
+  const isInternal = href.startsWith(SITE_URL);
+  if (isInternal) {
+    const path = href.slice(SITE_URL.length) || '/';
+    return (
+      <Link to={path} className="projects__link">
+        {label}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      className="projects__link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {label}
+    </a>
+  );
+}
+
 const Project = () => {
   return (
     <section id="projects" className="work-block">
@@ -99,7 +124,7 @@ const Project = () => {
           {PROJECTS.map((project) => (
             <li className="projects__item" key={project.title}>
               <div className="projects__media">
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={`${project.title} project`} loading="lazy" decoding="async" />
               </div>
               <div className="projects__copy">
                 <p className="projects__meta">
@@ -109,15 +134,7 @@ const Project = () => {
                 <p className="projects__text">{project.description}</p>
                 <div className="projects__links">
                   {project.links.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="projects__link"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {link.label}
-                    </a>
+                    <ProjectLink key={link.href} href={link.href} label={link.label} />
                   ))}
                 </div>
               </div>

@@ -17,6 +17,7 @@ const Testimonials = () => {
               controls
               width="100%"
               height="100%"
+              title="Walk in the craziest way — motorcycle film by Vatsal Verma"
               url="https://youtu.be/DUflrV2Nlzk?si=4DE9LkMJvIagw4q2"
             />
           </div>
@@ -42,7 +43,7 @@ const Testimonials = () => {
               className="testimonials__link"
               href="https://www.youtube.com/@walkinthecraziestway"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               More on YouTube
             </a>

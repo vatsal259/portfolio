@@ -46,12 +46,12 @@ const Nav = () => {
           onClick={closeMenu}
           aria-label="Home"
         >
-          <img src={LOGO_SRC} alt="" className="nav__logo" aria-hidden />
+          <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
         </Link>
 
         <nav className="nav__desktop" aria-label="Primary navigation">
           <Link to="/" className="nav__brand" onClick={closeMenu}>
-            <img src={LOGO_SRC} alt="" className="nav__logo" aria-hidden />
+            <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
             <span className="nav__brand-text">Vatsal Verma</span>
           </Link>
 

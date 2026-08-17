@@ -3,9 +3,17 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchBlogSlugs } from './fetchBlogSlugs.mjs';
 import { BLOG_SLUGS } from './blogPosts.mjs';
+import { escapeAttr, escapeHtml } from './escapeHtml.mjs';
 import {
   PAGE_SEO,
   SITE_URL,
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  OG_IMAGE_ALT,
+  OG_LOCALE,
+  TWITTER_HANDLE,
+  INDEX_ROBOTS,
+  RSS_URL,
   buildArticleSeo,
 } from './seo-data.mjs';
 
@@ -58,8 +66,24 @@ async function fetchArticleFrontmatter(slug) {
   }
 }
 
+function replaceOrInsertByName(html, name, content) {
+  const tag = `<meta name="${name}" content="${escapeAttr(content)}">`;
+  const re = new RegExp(`<meta name="${name}" content="[^"]*">`);
+  if (re.test(html)) return html.replace(re, tag);
+  return html.replace('</head>', `    ${tag}\n</head>`);
+}
+
+function replaceOrInsertByProperty(html, property, content) {
+  const tag = `<meta property="${property}" content="${escapeAttr(content)}">`;
+  const re = new RegExp(`<meta property="${property}" content="[^"]*">`);
+  if (re.test(html)) return html.replace(re, tag);
+  return html.replace('</head>', `    ${tag}\n</head>`);
+}
+
 function injectSeo(baseHtml, route, seo) {
-  const canonical = `${SITE_URL}${route}`;
+  const canonical = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}`;
+  const robots = seo.robots || INDEX_ROBOTS;
+  const ogType = seo.ogType || 'website';
   const jsonLdScripts = (seo.jsonLd || [])
     .map(
       (schema) =>
@@ -67,36 +91,48 @@ function injectSeo(baseHtml, route, seo) {
     )
     .join('\n    ');
 
-  let html = baseHtml
-    .replace(/<title>[^<]*<\/title>/, `<title>${seo.title}</title>`)
-    .replace(
-      /<meta name="description" content="[^"]*">/,
-      `<meta name="description" content="${seo.description}">`
-    )
-    .replace(
-      /<link rel="canonical" href="[^"]*">/,
-      `<link rel="canonical" href="${canonical}">`
-    )
-    .replace(
-      /<meta property="og:title" content="[^"]*">/,
-      `<meta property="og:title" content="${seo.title}">`
-    )
-    .replace(
-      /<meta property="og:description" content="[^"]*">/,
-      `<meta property="og:description" content="${seo.description}">`
-    )
-    .replace(
-      /<meta property="og:url" content="[^"]*">/,
-      `<meta property="og:url" content="${canonical}">`
-    )
-    .replace(
-      /<meta name="twitter:title" content="[^"]*">/,
-      `<meta name="twitter:title" content="${seo.title}">`
-    )
-    .replace(
-      /<meta name="twitter:description" content="[^"]*">/,
-      `<meta name="twitter:description" content="${seo.description}">`
+  let html = baseHtml.replace(
+    /<title>[^<]*<\/title>/,
+    `<title>${escapeHtml(seo.title)}</title>`
+  );
+
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${escapeAttr(canonical)}">`
+  );
+
+  html = replaceOrInsertByName(html, 'description', seo.description);
+  html = replaceOrInsertByName(html, 'robots', robots);
+  html = replaceOrInsertByName(html, 'author', SITE_NAME);
+  html = replaceOrInsertByProperty(html, 'og:type', ogType);
+  html = replaceOrInsertByProperty(html, 'og:site_name', SITE_NAME);
+  html = replaceOrInsertByProperty(html, 'og:title', seo.title);
+  html = replaceOrInsertByProperty(html, 'og:description', seo.description);
+  html = replaceOrInsertByProperty(html, 'og:url', canonical);
+  html = replaceOrInsertByProperty(html, 'og:image', DEFAULT_OG_IMAGE);
+  html = replaceOrInsertByProperty(html, 'og:image:alt', OG_IMAGE_ALT);
+  html = replaceOrInsertByProperty(html, 'og:locale', OG_LOCALE);
+  html = replaceOrInsertByName(html, 'twitter:card', 'summary_large_image');
+  html = replaceOrInsertByName(html, 'twitter:site', TWITTER_HANDLE);
+  html = replaceOrInsertByName(html, 'twitter:creator', TWITTER_HANDLE);
+  html = replaceOrInsertByName(html, 'twitter:title', seo.title);
+  html = replaceOrInsertByName(html, 'twitter:description', seo.description);
+  html = replaceOrInsertByName(html, 'twitter:image', DEFAULT_OG_IMAGE);
+  html = replaceOrInsertByName(html, 'twitter:image:alt', OG_IMAGE_ALT);
+
+  if (ogType === 'article' && seo.publishedTime) {
+    html = replaceOrInsertByProperty(
+      html,
+      'article:published_time',
+      seo.publishedTime
     );
+    html = replaceOrInsertByProperty(
+      html,
+      'article:modified_time',
+      seo.modifiedTime || seo.publishedTime
+    );
+    html = replaceOrInsertByProperty(html, 'article:author', SITE_NAME);
+  }
 
   html = html.replace(
     /<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g,
@@ -107,8 +143,8 @@ function injectSeo(baseHtml, route, seo) {
     html = html.replace('</head>', `    ${jsonLdScripts}\n</head>`);
   }
 
-  const fallback = `<main id="seo-prerender" hidden aria-hidden="true">${seo.body}</main>`;
-  html = html.replace('<div id="root"></div>', `${fallback}\n    <div id="root"></div>`);
+  const noscript = `<noscript>${seo.body}<p><a href="${RSS_URL}">RSS feed</a></p></noscript>`;
+  html = html.replace(/<noscript>[\s\S]*?<\/noscript>/, noscript);
 
   return html;
 }
@@ -133,10 +169,7 @@ async function main() {
   for (const slug of slugs) {
     const frontmatter = await fetchArticleFrontmatter(slug);
     const seo = buildArticleSeo(slug, frontmatter);
-    await writeRouteHtml(baseHtml, `/blog/${slug}`, {
-      ...seo,
-      ogType: 'article',
-    });
+    await writeRouteHtml(baseHtml, `/blog/${slug}`, seo);
   }
 
   console.log(
