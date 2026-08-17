@@ -20,7 +20,7 @@ const FEATURED_PATHS = [
   {
     title: 'Read the blog',
     to: '/blog',
-    copy: 'Notes on Java, Spring Boot, Elasticsearch, JVM internals, and building in production.',
+    copy: 'Technical notes on engineering, systems, and building in production.',
   },
   {
     title: 'Say Hi',
@@ -45,11 +45,6 @@ const Home = () => {
           <div className="container home__intro">
             <p className="home__eyebrow">All in one</p>
             <h2>A simple home for what I build and what I love.</h2>
-            <p className="home__lede">
-              Software engineer at Amdocs. I write about Java, Spring Boot,
-              Elasticsearch, and JVM systems, and I keep a record of rides and
-              photographs.
-            </p>
           </div>
 
           <div className="container home__links">

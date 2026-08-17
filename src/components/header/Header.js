@@ -10,7 +10,7 @@ const Header = () => {
                     <p className={"header__intro text-light"}>Hello, I&apos;m</p>
                     <h1 className={"header__name"}>Vatsal Verma</h1>
                     <p className={"header__tagline text-light"}>
-                    Software Engineer in Java & Spring · Biker · Photographer
+                    Software Engineer | Biker | Amateur Photographer
                     </p>
                     <a
                         href={resumeUrl}
@@ -22,15 +22,7 @@ const Header = () => {
                     </a>
                 </div>
                 <div className={"header__image-wrap"}>
-                    <img
-                      className={"me"}
-                      src={ME}
-                      alt={"Vatsal Verma, software engineer"}
-                      width={680}
-                      height={680}
-                      decoding="async"
-                      fetchPriority="high"
-                    />
+                    <img className={"me"} src={ME} alt={"Vatsal Verma portrait"}/>
                 </div>
             </div>
         </header>
