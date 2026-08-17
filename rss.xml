@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vatsal Verma Blog</title>
+    <link>https://www.vatsalverma.in/blog</link>
+    <description>Vatsal Verma is a software engineer at Amdocs writing about Java, Spring Boot, Elasticsearch, and JVM systems. Portfolio, projects, blog, and contact.</description>
+    <language>en-in</language>
+    <managingEditor>vatsalverma999@gmail.com (Vatsal Verma)</managingEditor>
+    <atom:link href="https://www.vatsalverma.in/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Spring Boot Ultra: Main Character Energy for Your Backend</title>
+      <link>https://www.vatsalverma.in/blog/spring-boot-ultra-zero-to-architect</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/spring-boot-ultra-zero-to-architect</guid>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <description>The ultra Spring Boot textbook - Parts I–XXI with deep lessons, matrices, mermaid diagrams, labs, architect chapters (starters, Actuator, security, GraphQL, SSL, JdbcClient, CRaC), plus a 972-topic atlas with official docs links.</description>
+    </item>
+    <item>
+      <title>It&apos;s Lucene All the Way Down</title>
+      <link>https://www.vatsalverma.in/blog/elasticsearch-complete-course</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/elasticsearch-complete-course</guid>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A proper Elasticsearch course - teach Lucene guts, search, analytics, lifecycle, vectors, and ops with worked examples and official elastic.co docs links on every topic. Not a flashcard deck.</description>
+    </item>
+    <item>
+      <title>Know the JVM, My Brother. Offers Follow.</title>
+      <link>https://www.vatsalverma.in/blog/java-internals-1000-qa</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/java-internals-1000-qa</guid>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A thousand Q&amp;As on JVM guts - memory, GC, concurrency, proxies, classloading - and the basics that still break production. Built for revision, not fluff.</description>
+    </item>
+    <item>
+      <title>ArwenForge: Profile-Based RBAC for Multi-Agent MCP Servers</title>
+      <link>https://www.vatsalverma.in/blog/introducing-arwenforge</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/introducing-arwenforge</guid>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
+      <description>One MCP endpoint, many agents. ArwenForge tags tools, resources, prompts, and delegates with profiles — then enforces least-privilege discovery and fail-closed execution on the JVM.</description>
+    </item>
+    <item>
+      <title>docube-db: Zero-Infra Code Lookup via Prefix Pruning</title>
+      <link>https://www.vatsalverma.in/blog/introducing-docube-db</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/introducing-docube-db</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <description>A small Java library that finds the right invoice, serial, or part code when the input is almost right using a chunk trie to prune and Levenshtein to rank. Open source on GitHub.</description>
+    </item>
+    <item>
+      <title>State It. Cache It. Ace It. A Dynamic Programming Guide.</title>
+      <link>https://www.vatsalverma.in/blog/dp-basic-to-advanced</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/dp-basic-to-advanced</guid>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
+      <description>A 7-day roadmap from recursion and memoization through knapsack, tree DP, bitmask DP, and interval DP - with curated LeetCode problems and contest-ready patterns.</description>
+    </item>
+    <item>
+      <title>Everything you need to know about LangChain and LangGraph</title>
+      <link>https://www.vatsalverma.in/blog/langchain-langgraph-blog</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/langchain-langgraph-blog</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+      <description>This post takes you from &quot;what is an LLM API?&quot; to production agents - step by step, no prior knowledge assumed.</description>
+    </item>
+    <item>
+      <title>One Change Breaks Everything? Five SOLID Principles Fix That</title>
+      <link>https://www.vatsalverma.in/blog/solid-principles-ultimate-guide</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/solid-principles-ultimate-guide</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 GMT</pubDate>
+      <description>A deep-dive into all five SOLID principles with real-world analogies, bad vs. good code comparisons, and complete Java examples. Learn how to write clean, maintainable, and extensible software that your future self will thank you for.</description>
+    </item>
+    <item>
+      <title>Design Patterns Hiding in Your Code - All of Them, Explained</title>
+      <link>https://www.vatsalverma.in/blog/design-patterns-ultimate-guide</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/design-patterns-ultimate-guide</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description>A deep-dive into all 23 GoF design patterns - Creational, Structural, and Behavioral, explained with real-world analogies, UML intent, and complete Java code examples. Your one-stop reference for writing better, scalable software.</description>
+    </item>
+    <item>
+      <title>Embabel Agent Framework: Build Smarter AI Agents on the JVM</title>
+      <link>https://www.vatsalverma.in/blog/embabel-agent-framework</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/embabel-agent-framework</guid>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <description>A deep-dive into Embabel - the JVM-native agent framework that replaces brittle workflows with type-driven, goal-oriented AI planning. Learn the core concepts, write your first agent, and understand why it&apos;s a step ahead of LangGraph, CrewAI, and similar tools.</description>
+    </item>
+    <item>
+      <title>My “I’ll Come Back to This” Collection</title>
+      <link>https://www.vatsalverma.in/blog/interesting-finds</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/interesting-finds</guid>
+      
+      <description>Papers, articles, and anything else worth saving, a living list of things I keep coming back to.</description>
+    </item>
+  </channel>
+</rss>
