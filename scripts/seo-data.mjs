@@ -15,7 +15,7 @@ export const INDEX_ROBOTS =
 export const NOINDEX_ROBOTS = 'noindex, nofollow';
 
 export const DEFAULT_DESCRIPTION =
-  'Vatsal Verma is a software engineer at Amdocs writing about Java, Spring Boot, Elasticsearch, and JVM systems. Portfolio, projects, blog, and contact.';
+  "I'm Vatsal Verma. I work on backend and AI in Java. I ride motorcycles, take photos, drink coffee, and watch movies.";
 
 const SAME_AS = [
   'https://www.linkedin.com/in/vatsalverma999/',
@@ -49,6 +49,7 @@ export const PERSON_SCHEMA = {
   address: { '@type': 'PostalAddress', addressCountry: 'IN' },
   sameAs: SAME_AS,
   knowsAbout: [
+    'Backend Engineering',
     'Software Engineering',
     'Java',
     'Spring Boot',
@@ -56,9 +57,15 @@ export const PERSON_SCHEMA = {
     'Elasticsearch',
     'JVM',
     'Distributed Systems',
-    'React',
     'Artificial Intelligence',
-    'Photography',
+    'AI Agents',
+    'Spring AI',
+    'React',
+    'Motorcycling',
+    'Wildlife Photography',
+    'Coffee',
+    'Fitness',
+    'Cinema',
   ],
 };
 
@@ -124,7 +131,7 @@ const BLOG_LIST_HTML = BLOG_POSTS.map(
 
 export const PAGE_SEO = {
   '/': {
-    title: 'Vatsal Verma | Software Engineer in Java & Spring',
+    title: 'Vatsal Verma | Developer, Rider & Photographer',
     description: DEFAULT_DESCRIPTION,
     jsonLd: [
       PERSON_SCHEMA,
@@ -132,14 +139,14 @@ export const PAGE_SEO = {
       {
         '@context': 'https://schema.org',
         '@type': 'ProfilePage',
-        name: 'Vatsal Verma | Software Engineer in Java & Spring',
+        name: 'Vatsal Verma | Developer, Rider & Photographer',
         url: `${SITE_URL}/`,
         mainEntity: { '@id': `${SITE_URL}/#person` },
         isPartOf: { '@id': `${SITE_URL}/#website` },
       },
       breadcrumb([{ name: 'Home', path: '/' }]),
     ],
-    body: `<h1>Vatsal Verma</h1><p>Software engineer at Amdocs. Java, Spring Boot, Kafka, Elasticsearch, and JVM systems. Biker and photographer.</p>${NAV_LINKS}<h2>Writing</h2><ul>${BLOG_LIST_HTML}</ul>`,
+    body: `<h1>Vatsal Verma</h1><p>I'm Vatsal Verma. I work on backend and AI in Java. I ride motorcycles, take photos, drink coffee, and watch movies.</p>${NAV_LINKS}<h2>Writing</h2><ul>${BLOG_LIST_HTML}</ul>`,
   },
   '/about': {
     title: 'About | Vatsal Verma',

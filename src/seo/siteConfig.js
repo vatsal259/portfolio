@@ -11,7 +11,7 @@ export const RSS_PATH = '/rss.xml';
 export const RSS_URL = `${SITE_URL}${RSS_PATH}`;
 
 export const DEFAULT_DESCRIPTION =
-  'Vatsal Verma is a software engineer at Amdocs writing about Java, Spring Boot, Elasticsearch, and JVM systems. Portfolio, projects, blog, and contact.';
+  "I'm Vatsal Verma. I work on backend and AI in Java. I ride motorcycles, take photos, drink coffee, and watch movies.";
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/Logo.png`;
 export const OG_IMAGE_ALT = 'Vatsal Verma';
@@ -69,6 +69,7 @@ export const PERSON_SCHEMA = {
   },
   sameAs: SAME_AS,
   knowsAbout: [
+    'Backend Engineering',
     'Software Engineering',
     'Java',
     'Spring Boot',
@@ -76,9 +77,15 @@ export const PERSON_SCHEMA = {
     'Elasticsearch',
     'JVM',
     'Distributed Systems',
-    'React',
     'Artificial Intelligence',
-    'Photography',
+    'AI Agents',
+    'Spring AI',
+    'React',
+    'Motorcycling',
+    'Wildlife Photography',
+    'Coffee',
+    'Fitness',
+    'Cinema',
   ],
 };
 
@@ -96,7 +103,7 @@ export const WEBSITE_SCHEMA = {
 
 export const PAGE_SEO = {
   home: {
-    fullTitle: 'Vatsal Verma | Software Engineer in Java & Spring',
+    fullTitle: 'Vatsal Verma | Developer, Rider & Photographer',
     description: DEFAULT_DESCRIPTION,
     path: '/',
   },
