@@ -8,6 +8,13 @@
     <managingEditor>vatsalverma999@gmail.com (Vatsal Verma)</managingEditor>
     <atom:link href="https://www.vatsalverma.in/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>ArwenForge: Profile-Based RBAC for Multi-Agent MCP Servers</title>
+      <link>https://www.vatsalverma.in/blog/introducing-arwenforge</link>
+      <guid isPermaLink="true">https://www.vatsalverma.in/blog/introducing-arwenforge</guid>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+      <description>One MCP endpoint, many agents. ArwenForge tags tools, resources, prompts, and delegates with profiles — then enforces least-privilege discovery and fail-closed execution on the JVM.</description>
+    </item>
+    <item>
       <title>Spring Boot Ultra: Main Character Energy for Your Backend</title>
       <link>https://www.vatsalverma.in/blog/spring-boot-ultra-zero-to-architect</link>
       <guid isPermaLink="true">https://www.vatsalverma.in/blog/spring-boot-ultra-zero-to-architect</guid>
@@ -27,13 +34,6 @@
       <guid isPermaLink="true">https://www.vatsalverma.in/blog/java-internals-1000-qa</guid>
       <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
       <description>A thousand Q&amp;As on JVM guts - memory, GC, concurrency, proxies, classloading - and the basics that still break production. Built for revision, not fluff.</description>
-    </item>
-    <item>
-      <title>ArwenForge: Profile-Based RBAC for Multi-Agent MCP Servers</title>
-      <link>https://www.vatsalverma.in/blog/introducing-arwenforge</link>
-      <guid isPermaLink="true">https://www.vatsalverma.in/blog/introducing-arwenforge</guid>
-      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
-      <description>One MCP endpoint, many agents. ArwenForge tags tools, resources, prompts, and delegates with profiles — then enforces least-privilege discovery and fail-closed execution on the JVM.</description>
     </item>
     <item>
       <title>docube-db: Zero-Infra Code Lookup via Prefix Pruning</title>
