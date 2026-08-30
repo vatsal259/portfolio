@@ -61,18 +61,6 @@ const markdownComponents = {
   ),
 };
 
-function formatArticleMeta(post) {
-  if (!post) return undefined;
-
-  const parts = [];
-  if (post.date) parts.push(formatDate(post.date));
-  if (post.readingMinutes > 0) {
-    parts.push(`${post.readingMinutes} min read`);
-  }
-
-  return parts.length > 0 ? parts.join(' · ') : undefined;
-}
-
 const BlogPost = () => {
   const { slug } = useParams();
   const { post, loading, error } = useBlogPost(slug);
@@ -81,13 +69,17 @@ const BlogPost = () => {
   const notFound = !loading && !post && !getBlogPostBySlug(slug);
   const heroTitle =
     post?.title || seoPost?.title || (loading ? 'Loading…' : 'Article not found');
-  const heroSubtitle = post?.date ? (
+  const heroSubtitle = (
     <>
-      <time dateTime={post.date}>{formatDate(post.date)}</time>
-      {post.readingMinutes > 0 && ` · ${post.readingMinutes} min read`}
+      By Vatsal Verma
+      {post?.date && (
+        <>
+          {' · '}
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+        </>
+      )}
+      {post?.readingMinutes > 0 && ` · ${post.readingMinutes} min read`}
     </>
-  ) : (
-    formatArticleMeta(post)
   );
   const related = slug ? getRelatedPosts(slug) : [];
 
@@ -121,7 +113,7 @@ const BlogPost = () => {
       />
     )}
     <SectionPage
-      eyebrow="Article"
+      eyebrow="Blog"
       title={heroTitle}
       subtitle={heroSubtitle}
     >

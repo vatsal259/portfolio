@@ -27,7 +27,7 @@
   {
     "slug": "introducing-arwenforge",
     "title": "ArwenForge: Profile-Based RBAC for Multi-Agent MCP Servers",
-    "date": "2026-07-22",
+    "date": "2026-08-30",
     "excerpt": "One MCP endpoint, many agents. ArwenForge tags tools, resources, prompts, and delegates with profiles — then enforces least-privilege discovery and fail-closed execution on the JVM."
   },
   {
