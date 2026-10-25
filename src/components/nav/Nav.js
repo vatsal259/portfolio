@@ -13,6 +13,11 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Say Hi', to: '/contact' },
 ];
 
+const MOBILE_NAV_ITEMS = [
+  { id: 'home', label: 'Home', to: '/' },
+  ...NAV_ITEMS,
+];
+
 const Nav = () => {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,17 +48,19 @@ const Nav = () => {
       <div className="container nav__bar">
         <Link
           to="/"
-          className={`nav__logo-home${!isHome ? ' nav__logo-home--return' : ''}`}
+          className={`nav__logo-home${!isHome && !menuOpen ? ' nav__logo-home--return' : ''}`}
           onClick={closeMenu}
-          aria-label={isHome ? 'Home' : 'Back home'}
+          aria-label="Home"
         >
-          {!isHome && (
+          {!isHome && !menuOpen && (
             <span className="nav__logo-home-return" aria-hidden>
               ←
             </span>
           )}
           <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
-          {!isHome && <span className="nav__logo-home-label">Back home</span>}
+          {!isHome && !menuOpen && (
+            <span className="nav__logo-home-label">Home</span>
+          )}
         </Link>
 
         <nav className="nav__desktop" aria-label="Primary navigation">
@@ -61,16 +68,18 @@ const Nav = () => {
             to="/"
             className={`nav__brand${!isHome ? ' nav__brand--return' : ''}`}
             onClick={closeMenu}
-            aria-label={isHome ? 'Home' : 'Back home'}
-            title={isHome ? undefined : 'Back home'}
+            aria-label="Home"
+            title={isHome ? undefined : 'Home'}
           >
-            <span className="nav__brand-return" aria-hidden>
-              ←
-            </span>
+            {!isHome && (
+              <span className="nav__brand-return" aria-hidden>
+                ←
+              </span>
+            )}
             <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
             <span className="nav__brand-copy">
               <span className="nav__brand-text">Vatsal Verma</span>
-              <span className="nav__brand-hint">Back home</span>
+              <span className="nav__brand-hint">Home</span>
             </span>
           </Link>
 
@@ -126,16 +135,9 @@ const Nav = () => {
         className={`nav__mobile${menuOpen ? ' is-open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        <Link
-          to="/"
-          className={`nav__mobile-home${!isHome ? ' nav__mobile-home--return' : ''}`}
-          onClick={closeMenu}
-          aria-label={isHome ? 'Home' : 'Back home'}
-        >
-          {!isHome ? '← Back home' : 'Vatsal Verma'}
-        </Link>
+        <p className="nav__mobile-home">Vatsal Verma</p>
         <ul className="nav__mobile-list">
-          {NAV_ITEMS.map(({ id, label, to }) => {
+          {MOBILE_NAV_ITEMS.map(({ id, label, to }) => {
             const isActive = isPathActive(to);
             const cls = `nav__mobile-link${isActive ? ' is-active' : ''}`;
             return (
