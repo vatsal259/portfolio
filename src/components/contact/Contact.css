@@ -20,28 +20,43 @@
   margin-top: 0.8rem;
 }
 
-.contact-page__facts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem 1.6rem;
+.contact-page__section-label {
+  margin: 0 0 0.9rem;
+  font-size: var(--font-size-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+}
+
+.contact-page__collab {
   padding-bottom: 1.6rem;
+  margin-bottom: 0.25rem;
   border-bottom: 1px solid var(--color-border);
 }
 
-.contact-page__fact {
+.contact-page__points {
   display: flex;
   flex-direction: column;
-  gap: 0.18rem;
+  gap: 0.95rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.contact-page__fact-label {
+.contact-page__point {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact-page__point-label {
   font-size: var(--font-size-caption);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-muted);
 }
 
-.contact-page__fact-value {
+.contact-page__point-value {
   font-size: var(--font-size-small);
   color: var(--color-white);
   line-height: var(--line-height-copy);
@@ -52,7 +67,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--color-border);
 }
 
 .contact-page__list > li {
@@ -173,7 +187,6 @@
 
 .contact-page__elsewhere-subtitle {
   margin: 0;
-  color: var(--color-light);
   font-size: var(--font-size-small);
   line-height: 1.6;
   color: var(--color-muted);
@@ -204,38 +217,24 @@
   border-color: var(--color-white);
 }
 
-@media screen and (max-width: 1024px) {
-  .contact-page__facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .contact-page__inner {
     padding: 0 1.1rem;
   }
 
-  .contact-page__facts {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .contact-page__collab {
     padding-bottom: 1.25rem;
+  }
+
+  .contact-page__points {
+    gap: 0.85rem;
   }
 
   .contact-page__channel {
     padding: 1.15rem 0;
   }
 
-  .contact-page__channel-title {
-    font-size: var(--font-size-card);
-  }
-
   .contact-page__elsewhere {
-    margin-top: 0;
     padding-top: 1.15rem;
-  }
-
-  .contact-page__elsewhere-title {
-    font-size: var(--font-size-section);
   }
 }

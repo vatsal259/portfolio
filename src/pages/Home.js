@@ -10,22 +10,22 @@ const FEATURED_PATHS = [
   {
     title: 'About Me',
     to: '/about',
-    copy: 'The story, the obsessions, and the work history when you need it.',
+    copy: 'Who I am when the laptop is open and when it is not.',
   },
   {
     title: 'Work & Life',
     to: '/work',
-    copy: 'Projects, life outside code, and stories from the road.',
+    copy: 'Things I have shipped, rides I have taken, frames I have kept.',
   },
   {
     title: 'Read the blog',
     to: '/blog',
-    copy: 'Technical notes on engineering, systems, and building in production.',
+    copy: 'Notes from building real systems the parts that actually mattered.',
   },
   {
     title: 'Say Hi',
     to: '/contact',
-    copy: 'Collaborations, ideas, or just a thoughtful conversation.',
+    copy: 'Got something interesting? I am always up for a conversation.',
   },
 ];
 
@@ -43,8 +43,11 @@ const Home = () => {
 
         <section className="home__section">
           <div className="container home__intro">
-            <p className="home__eyebrow">All in one</p>
-            <h2>A simple home for what I build and what I love.</h2>
+            <p className="home__eyebrow">Start here</p>
+            <h2 className="home__title">Running four main threads on a single core.</h2>
+            <p className="home__subtitle">
+              code · rides · frames · notes
+            </p>
           </div>
 
           <div className="container home__links">

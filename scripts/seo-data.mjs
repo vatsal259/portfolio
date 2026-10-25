@@ -188,7 +188,7 @@ export const PAGE_SEO = {
     body: `<h1>Work &amp; Life</h1><p>Projects such as ArwenForge and docube-db, wildlife photography, motorcycle rides, and films on YouTube.</p>${NAV_LINKS}`,
   },
   '/blog': {
-    title: 'Engineering Blog | Vatsal Verma',
+    title: 'Blog | Vatsal Verma',
     description:
       'Guides on Spring Boot, Elasticsearch, JVM internals, SOLID, design patterns, LangChain, and JVM AI agents, written from production work.',
     jsonLd: [
@@ -218,7 +218,7 @@ export const PAGE_SEO = {
         { name: 'Blog', path: '/blog' },
       ]),
     ],
-    body: `<h1>Engineering Blog</h1><p>Guides on Spring Boot, Elasticsearch, JVM internals, SOLID, design patterns, and JVM AI agents.</p><ul>${BLOG_LIST_HTML}</ul>${NAV_LINKS}`,
+    body: `<h1>Blog</h1><p>Guides on Spring Boot, Elasticsearch, JVM internals, SOLID, design patterns, and JVM AI agents.</p><ul>${BLOG_LIST_HTML}</ul>${NAV_LINKS}`,
   },
   '/contact': {
     title: 'Contact | Vatsal Verma',

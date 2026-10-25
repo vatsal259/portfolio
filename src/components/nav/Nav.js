@@ -32,6 +32,7 @@ const Nav = () => {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const isHome = pathname === '/';
   const isPathActive = (to) => {
     if (to === '/') return pathname === '/';
     return pathname.startsWith(to);
@@ -42,17 +43,35 @@ const Nav = () => {
       <div className="container nav__bar">
         <Link
           to="/"
-          className="nav__logo-home"
+          className={`nav__logo-home${!isHome ? ' nav__logo-home--return' : ''}`}
           onClick={closeMenu}
-          aria-label="Home"
+          aria-label={isHome ? 'Home' : 'Back home'}
         >
+          {!isHome && (
+            <span className="nav__logo-home-return" aria-hidden>
+              ←
+            </span>
+          )}
           <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
+          {!isHome && <span className="nav__logo-home-label">Back home</span>}
         </Link>
 
         <nav className="nav__desktop" aria-label="Primary navigation">
-          <Link to="/" className="nav__brand" onClick={closeMenu}>
+          <Link
+            to="/"
+            className={`nav__brand${!isHome ? ' nav__brand--return' : ''}`}
+            onClick={closeMenu}
+            aria-label={isHome ? 'Home' : 'Back home'}
+            title={isHome ? undefined : 'Back home'}
+          >
+            <span className="nav__brand-return" aria-hidden>
+              ←
+            </span>
             <img src={LOGO_SRC} alt="" className="nav__logo" width={32} height={32} aria-hidden />
-            <span className="nav__brand-text">Vatsal Verma</span>
+            <span className="nav__brand-copy">
+              <span className="nav__brand-text">Vatsal Verma</span>
+              <span className="nav__brand-hint">Back home</span>
+            </span>
           </Link>
 
           <div className="nav__actions">
@@ -107,8 +126,13 @@ const Nav = () => {
         className={`nav__mobile${menuOpen ? ' is-open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        <Link to="/" className="nav__mobile-home" onClick={closeMenu}>
-          Vatsal Verma
+        <Link
+          to="/"
+          className={`nav__mobile-home${!isHome ? ' nav__mobile-home--return' : ''}`}
+          onClick={closeMenu}
+          aria-label={isHome ? 'Home' : 'Back home'}
+        >
+          {!isHome ? '← Back home' : 'Vatsal Verma'}
         </Link>
         <ul className="nav__mobile-list">
           {NAV_ITEMS.map(({ id, label, to }) => {

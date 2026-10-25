@@ -120,7 +120,7 @@ export const PAGE_SEO = {
     path: '/work',
   },
   blog: {
-    title: 'Engineering Blog',
+    title: 'Blog',
     description:
       'Guides on Spring Boot, Elasticsearch, JVM internals, SOLID, design patterns, LangChain, and JVM AI agents, written from production work.',
     path: '/blog',

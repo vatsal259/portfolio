@@ -16,7 +16,6 @@ const FOOTER_LINKS = [
   { label: 'About Me', to: '/about' },
   { label: 'Work & Life', to: '/work' },
   { label: 'Blog', to: '/blog' },
-  { label: 'RSS', href: '/rss.xml' },
   { label: 'Resume', href: resumeUrl },
   { label: 'Say Hi', to: '/contact' },
 ];

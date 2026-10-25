@@ -45,10 +45,92 @@
   font-weight: 400;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  transition: color 200ms ease, gap 200ms ease;
 }
 
 .nav__brand:hover {
   color: var(--color-primary);
+}
+
+.nav__brand-return {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: var(--font-size-small);
+  line-height: 1;
+  color: var(--color-primary);
+  transform: translateX(4px);
+  transition:
+    width 220ms ease,
+    opacity 200ms ease,
+    transform 220ms ease;
+}
+
+.nav__brand-copy {
+  display: grid;
+  align-items: center;
+}
+
+.nav__brand-text,
+.nav__brand-hint {
+  grid-area: 1 / 1;
+  transition:
+    opacity 200ms ease,
+    transform 220ms ease,
+    color 200ms ease;
+}
+
+.nav__brand-hint {
+  opacity: 0;
+  transform: translateY(4px);
+  color: var(--color-primary);
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.nav__brand--return .nav__brand-return {
+  width: 0.7rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav__brand--return .nav__brand-text {
+  opacity: 0.72;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__brand--return:hover {
+    gap: 0.65rem;
+    color: var(--color-primary);
+  }
+
+  .nav__brand--return:hover .nav__brand-return {
+    transform: translateX(-2px);
+  }
+
+  .nav__brand--return:hover .nav__brand-text {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  .nav__brand--return:hover .nav__brand-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: none) {
+  .nav__brand--return .nav__brand-text {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  .nav__brand--return .nav__brand-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav__actions {
@@ -118,11 +200,33 @@
   .nav__logo-home {
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    max-width: calc(100% - 6.2rem);
+    color: var(--color-light);
     -webkit-tap-highlight-color: transparent;
   }
 
-  .nav__logo-home:hover {
-    opacity: 0.88;
+  .nav__logo-home--return {
+    color: var(--color-primary);
+  }
+
+  .nav__logo-home-return {
+    flex-shrink: 0;
+    font-size: var(--font-size-small);
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .nav__logo-home-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--font-size-caption);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
   }
 
   .nav__desktop {
@@ -243,6 +347,10 @@
     font-weight: 400;
     letter-spacing: 0.09em;
     text-transform: uppercase;
+  }
+
+  .nav__mobile-home--return {
+    color: var(--color-primary);
   }
 
   .nav__backdrop {

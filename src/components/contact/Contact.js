@@ -4,10 +4,24 @@ import { EMAIL, LEETCODE_PROFILE_URL } from '../../seo/siteConfig';
 
 const INSTAGRAM_URL = 'https://instagram.com/vatsalastav';
 
-const OPEN_TO = [
-  { label: 'Collaborations', value: 'Products, systems, and side projects' },
-  { label: 'Conversations', value: 'Engineering, product, and growth' },
-  { label: 'Response', value: 'Eventually. Maybe. No promises.' },
+const COLLABORATIONS = [
+  {
+    label: 'Building',
+    value:
+      'I love making products and systems. If you are working on something interesting, I am always up for a conversation.',
+  },
+  {
+    label: 'Photography',
+    value: 'Mostly birds, but I shoot other things too. Down to go out with a camera anytime.',
+  },
+  {
+    label: 'Rides',
+    value: 'Looking for a riding partner? Count me in.',
+  },
+  {
+    label: 'Anything else',
+    value: 'If you think I can help with something, just ask. Happy to collaborate.',
+  },
 ];
 
 const SOCIAL_LINKS = [
@@ -45,13 +59,16 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-page">
       <div className="contact-page__inner">
-        <div className="contact-page__facts">
-          {OPEN_TO.map((item) => (
-            <div className="contact-page__fact" key={item.label}>
-              <span className="contact-page__fact-label">{item.label}</span>
-              <span className="contact-page__fact-value">{item.value}</span>
-            </div>
-          ))}
+        <div className="contact-page__collab">
+          <p className="contact-page__section-label">Collaborations</p>
+          <ul className="contact-page__points">
+            {COLLABORATIONS.map((item) => (
+              <li className="contact-page__point" key={item.label}>
+                <span className="contact-page__point-label">{item.label}</span>
+                <span className="contact-page__point-value">{item.value}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <ul className="contact-page__list">
@@ -89,7 +106,7 @@ const Contact = () => {
               </div>
               <h2 className="contact-page__channel-title">Instagram</h2>
               <p className="contact-page__channel-text">
-                Photos I&apos;ve taken - that&apos;s where they live.
+                Photos I&apos;ve taken that&apos;s where they live.
               </p>
               <span className="contact-page__channel-address">@vatsalastav</span>
               <span className="contact-page__channel-cta">
@@ -107,7 +124,7 @@ const Contact = () => {
             <p className="contact-page__elsewhere-eyebrow">Elsewhere</p>
             <h2 className="contact-page__elsewhere-title">Find me online</h2>
             <p className="contact-page__elsewhere-subtitle">
-              Code, rides, frames, and notes - same person, different platforms.
+              Code, rides, frames, and notes same person, different platforms.
             </p>
           </div>
           <div className="contact-page__links">
