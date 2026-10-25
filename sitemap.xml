@@ -79,6 +79,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.vatsalverma.in/blog/say-the-shape-first</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.vatsalverma.in/blog/solid-principles-ultimate-guide</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
